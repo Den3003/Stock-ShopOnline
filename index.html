@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="fonts/Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Lato-Bold.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+    <title>ShopOnline</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+          <div class="header__grid">
+            <img class="header__logo" src="images/header/logo.svg" alt="Логотип">    
+
+            <button class="header__button" type="button">
+                <svg class="header__menu-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3 18H9V16H3V18ZM3 6V8H21V6H3ZM3 13H15V11H3V13Z" fill="white" />
+                </svg>
+                Меню
+            </button>
+
+            <form class="search-box header__search-box" name="searchForm" action="#" method="post">
+                <input class="search-box__input" type="text" name="search" placeholder="Я ищу...">
+                <button class="search-box__button" type="submit">
+                  <svg class="search-box__icon" width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.25 17H18.065L17.645 16.595C19.115 14.885 20 12.665 20 10.25C20 4.865 15.635 0.5 10.25 0.5C4.865 0.5 0.5 4.865 0.5 10.25C0.5 15.635 4.865 20 10.25 20C12.665 20 14.885 19.115 16.595 17.645L17 18.065V19.25L24.5 26.735L26.735 24.5L19.25 17ZM10.25 17C6.515 17 3.5 13.985 3.5 10.25C3.5 6.515 6.515 3.5 10.25 3.5C13.985 3.5 17 6.515 17 10.25C17 13.985 13.985 17 10.25 17Z" fill="white"/>
+                  </svg>
+                </button>
+            </form>
+
+            <ul class="user-settings header__user-settings">
+                <li class="user-settings__item">
+                  <a class="user-settings__link" href="#">
+                    <svg class="user-settings__profile" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 12C15.315 12 18 9.315 18 6C18 2.685 15.315 0 12 0C8.685 0 6 2.685 6 6C6 9.315 8.685 12 12 12ZM12 15C7.995 15 0 17.01 0 21V24H24V21C24 17.01 16.005 15 12 15Z" fill="#2D2D2D"/>
+                    </svg>
+                    <span class="user-settings__name">Профиль</span>
+                  </a>
+                </li>
+                <li class="user-settings__item basket">
+                  <a class="user-settings__link" href="#">
+                    <svg class="user-settings__basket" width="31" height="30" viewBox="0 0 31 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M9.5 24C7.85 24 6.515 25.35 6.515 27C6.515 28.65 7.85 30 9.5 30C11.15 30 12.5 28.65 12.5 27C12.5 25.35 11.15 24 9.5 24ZM0.5 0V3H3.5L8.9 14.385L6.875 18.06C6.635 18.48 6.5 18.975 6.5 19.5C6.5 21.15 7.85 22.5 9.5 22.5H27.5V19.5H10.13C9.92 19.5 9.755 19.335 9.755 19.125L9.8 18.945L11.15 16.5H22.325C23.45 16.5 24.44 15.885 24.95 14.955L30.32 5.22C30.44 5.01 30.5 4.755 30.5 4.5C30.5 3.675 29.825 3 29 3H6.815L5.405 0H0.5ZM24.5 24C22.85 24 21.515 25.35 21.515 27C21.515 28.65 22.85 30 24.5 30C26.15 30 27.5 28.65 27.5 27C27.5 25.35 26.15 24 24.5 24Z" fill="#2D2D2D"/>
+                    </svg>
+                    <span class="user-settings__name">Корзина</span>
+                  </a>
+                  <span class="basket__counter">2</span>
+                </li>
+                <li class="user-settings__item">
+                  <a class="user-settings__link" href="#">
+                    <svg class="user-settings__favorite" width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15 28.025L12.825 26.045C5.1 19.04 0 14.42 0 8.75C0 4.13 3.63 0.5 8.25 0.5C10.86 0.5 13.365 1.715 15 3.635C16.635 1.715 19.14 0.5 21.75 0.5C26.37 0.5 30 4.13 30 8.75C30 14.42 24.9 19.04 17.175 26.06L15 28.025Z" fill="#2D2D2D"/>
+                    </svg>
+                    <span class="user-settings__name">Избранное</span>
+                  </a>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero__background">
+                    <h1 class="hero__title"><a class="hero__link" href="#">-50% на все ноутбуки</a></h1>
+                    <div class="stock-box hero__stock-box">
+                        <p class="stock-box__title">До конца акции:</p>
+                        <div class="stock-box__time">
+                          <p class="stock-box__text"><span class="stock-box__number stock-box__day">3</span> дня</p> 
+                          <p class="stock-box__text"><span class="stock-box__number stock-box__hour">8</span> часов</p> 
+                          <p class="stock-box__text"><span class="stock-box__number stock-box__minute">43</span> минуты</p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="discounts">
+            <div class="container">
+              <h2 class="visually-hidden">Большие скидки</h2>
+                <ul class="discounts__list grid-box">
+                    <li class="discounts__item discounts-item-1 grid-box__item-1"><a class="discounts__link" href="#"><span class="discounts-item-1__span">Книга</span> – лучший подарок</a></li>
+                    <li class="discounts__item discounts-item-2 discounts__item-percentage grid-box__item-2"><a class="discounts__link" href="#">Время скидок!</a></li>
+                    <li class="discounts__item discounts-item-3 grid-box__item-3"><a class="discounts__link discounts-item-3__link" href="#">Вторая пара кроссовок 
+                      <span class="discounts-item-3__span">в подарок!</span></a>
+                    </li>
+                    <li class="discounts__item discounts-item-4 grid-box__item-4"><a class="discounts__link discounts-item-4__link" href="#">Идеи новогодних подарков</a></li>
+                    <li class="discounts__item discounts-item-5 discounts__item-percentage grid-box__item-5"><a class="discounts__link" href="#"></a></li>
+                    <li class="discounts__item discounts-item-6 discounts__item-percentage grid-box__item-6"><a class="discounts__link" href="#">Выгодно в декабре!</a></li>
+                    <li class="discounts__item discounts-item-7 grid-box__item-7"><a class="discounts__link discounts-item-7__link" href="#">Новогодние украшения</a></li>
+                    <li class="discounts__item discounts-item-8 discounts__item-percentage grid-box__item-8"><a class="discounts__link" href="#"></a></li>
+                    <li class="discounts__item discounts-item-9 discounts__item-percentage grid-box__item-9"><a class="discounts__link" href="#">На бытовую химию</a></li>
+                    <li class="discounts__item discounts-item-10 grid-box__item-10"><a class="discounts__link" href="#"></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

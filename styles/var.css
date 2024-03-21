@@ -1,0 +1,13 @@
+:root {
+	--main-color: #fff;
+	--blue: #3670c7;
+	--black: #2d2d2d;
+	--gallery: #efefef;
+	--bg-opacity: linear-gradient(rgba(47, 50, 75, .5), rgba(47, 50, 75, .5));
+	/* --gray: #8f8f8f; */
+	/* --emperor: #525252; */
+	--red: #f91155;
+	/* --mercury: #e8e8e8; */
+  --light-blue: #38c0eb;
+  --yellow: #ffbd13;
+}

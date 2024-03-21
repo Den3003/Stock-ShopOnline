@@ -1,0 +1,512 @@
+.discounts {
+  padding: 0 0 189px;
+}
+
+.discounts__list {
+  margin: 0;
+  padding: 0;
+}
+
+.discounts__link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.discounts__link:before {
+  /* content: ""; */
+  position: absolute;
+  inset: 0;
+}
+
+.discounts__item {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 20px;
+}
+
+.discounts-item-1 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/book.jpg");
+}
+
+.discounts-item-2 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/watch.jpg");
+}
+
+.discounts-item-3 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/white-sneakers.jpg");
+}
+
+.discounts-item-4 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/gifts.jpg");
+}
+
+.discounts-item-5 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/red-sneakers.jpg");
+}
+
+.discounts-item-6 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/notebook.jpg");
+}
+
+.discounts-item-7 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/decoration.jpg");
+}
+
+.discounts-item-8 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/dress.jpg");
+}
+
+.discounts-item-9 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/chemistry.jpg");
+}
+
+.discounts-item-10 {
+  background-image: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%), url("../images/discounts/balls.jpg");
+}
+
+.discounts-item-1 {
+  font-size: 30px;
+  padding: 20px;
+  display: grid;
+  align-items: end;
+}
+
+.discounts-item-1__span {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.discounts-item-2 {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px 20px 20px 14px;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: flex-end;
+}
+.discounts__item-percentage:after {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 88px;
+  height: 88px;
+  background-color: var(--yellow);
+  border-radius: 50%;
+  font-size: 30px;
+}
+
+.discounts-item-2:after {
+  content: "-25%";
+  justify-self: self-end;
+}
+
+.discounts-item-3 {
+  font-size: 40px;
+  padding: 22px 20px;
+  line-height: 1.2;
+  display: grid;
+  align-items: end;
+}
+
+.discounts-item-3__link {
+  white-space: pre-line;
+  background-color: var(--light-blue);
+  border-radius: 20px;
+  display: block;
+  padding: 26px 23px;
+}
+
+.discounts-item-3__span {
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.discounts-item-4 {
+  font-size: 40px;
+  padding: 30px;
+  font-weight: 700;
+  display: grid;
+  align-items: end;
+}
+
+.discounts-item-5 {
+  padding: 20px;
+}
+
+.discounts-item-5:after {
+  content: "-40%";
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.discounts-item-6 {
+  position: relative;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 30px;
+  display: grid;
+  align-items: end;
+}
+
+.discounts-item-6:after {
+  content: "-15%";
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  font-size: 30px;
+}
+
+.discounts-item-7 {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--red);
+  padding: 50px;
+  text-transform: uppercase;
+  display: grid;
+  align-items: end;
+}
+
+.discounts-item-7__link {
+  display: block;
+  max-width: max-content;
+  border-radius: 20px;
+  padding: 32px 42px;
+  background-color: var(--main-color);
+}
+
+.discounts-item-8 {
+  display: grid;
+  place-items: end;
+  padding: 20px;
+}
+
+.discounts-item-8:after {
+  content: "-55%";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.discounts-item-9 {
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px;
+  display: grid;
+  align-content: space-between;
+}
+
+.discounts-item-9:after {
+  content: "-25%";
+  grid-row: 1 / 2;
+}
+
+
+@media (max-width: 1680px) {
+  .discounts {
+    padding: 0 0 106px;
+  }
+
+  .discounts__item {
+    border-radius: 16px;
+  }
+
+  .discounts-item-1 {
+    font-size: 24px;
+    padding: 20px 13px 20px 9px;
+  }
+
+  .discounts-item-1__span {
+    font-size: 30px;
+  }
+
+  .discounts-item-2 {
+    font-size: 24px;
+    padding: 10px 10px 10px 9px;
+    grid-template-rows: 81px 116px;
+  }
+
+  .discounts-item-3 {
+    font-size: 30px;
+    padding: 22px;
+  }
+
+  .discounts-item-3__span {
+    font-size: 40px;
+  }
+
+  .discounts-item-3__link {
+    padding: 29px 25px;
+  }
+
+  .discounts-item-4 {
+    font-size: 30px;
+    padding: 22px 20px;
+  }
+
+  .discounts-item-4__link {
+    max-width: 250px;
+  }
+
+  .discounts-item-5 {
+    padding: 10px;
+  }
+
+  .discounts-item-6 {
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  .discounts-item-6:after {
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .discounts-item-7 {
+    font-size: 30px;
+    padding: 39px 30px;
+  }
+
+  .discounts-item-7__link {
+    border-radius: 16px;
+    padding: 24px 46px 23px 47px;
+  }
+
+  .discounts-item-8 {
+    padding: 10px;
+  }
+
+  .discounts-item-9 {
+    position: relative;
+    display: block;
+    padding: 14px;
+    display: flex;
+    align-items: flex-end;
+    font-size: 20px;
+  }
+
+  .discounts-item-9:after {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .discounts {
+    padding: 0 0 580px;
+  }
+
+  .discounts__item {
+    border-radius: 12px;
+  }
+
+  .discounts__item-percentage:after {
+    font-size: 16px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .discounts-item-1 {
+    font-size: 20px;
+    line-height: 1.1;
+    padding: 15px 10px;
+  }
+
+  .discounts-item-1__span {
+    font-size: 26px;
+  }
+
+  .discounts-item-2 {
+    position: relative;
+    font-size: 16px;
+    padding: 15px 5px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .discounts-item-2:after {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .discounts-item-3 {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .discounts-item-3__span {
+    font-size: 26px;
+  }
+
+  .discounts-item-3__link {
+    border-radius: 12px;
+    white-space: normal;
+    padding: 16px 28px;
+  }
+
+  .discounts-item-4 {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .discounts-item-4__link {
+    max-width: 140px;
+  }
+
+  .discounts-item-6 {
+    font-size: 16px;
+    line-height: 1.2;
+  }
+
+  .discounts-item-7 {
+    font-size: 20px;
+    padding: 26px;
+  }
+
+  .discounts-item-8 {
+    background-image: url("../images/discounts/dress768.jpg");
+  }
+
+  .discounts-item-7__link {
+    border-radius: 12px;
+    padding: 22px 34px;
+  }
+
+  .discounts-item-9 {
+    position: relative;
+    font-size: 16px;
+  }
+}
+
+
+@media (max-width: 760px) {
+  .discounts-item-1 {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .discounts-item-1__span {
+    font-size: 20px;
+  }
+
+  .discounts-item-2 {
+    font-size: 14px;
+    padding: 28px 9px;
+  }
+
+  .discounts-item-3 {
+    font-size: 14px;
+  }
+
+  .discounts-item-3__span {
+    font-size: 20px;
+  }
+
+  .discounts-item-3__link {
+    padding: 9px 25px;
+    border-radius: 8px;
+  }
+
+  .discounts-item-9 {
+    font-size: 14px;
+  }
+
+  .discounts-item-9:after {
+    top: 5px;
+    left: 5px;
+  }
+}
+
+
+@media (max-width: 655px) {
+  .discounts-item-7 {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+
+  .discounts-item-7__link {
+    border-radius: 6px;
+    padding: 9px 41px;
+  }
+
+  .discounts-item-8 {
+    background-image: url("../images/discounts/dress655.jpg");
+  }
+}
+
+
+@media (max-width: 480px) {
+  .discounts {
+    padding: 0 0 234px;
+  }
+
+  .discounts__item {
+    border-radius: 8px;
+  }
+
+  .discounts-item-1 {
+    font-size: 12px;
+    padding: 10px 28px 10px 10px;
+  }
+
+  .discounts-item-1__span {
+    font-size: 16px;
+  }
+
+  .discounts-item-2 {
+    font-size: 12px;
+  }
+
+  .discounts-item-2:after {
+    right: 5px;
+    bottom: 5px;
+  }
+
+  .discounts-item-3 {
+    font-size: 12px;
+  }
+
+  .discounts-item-3__span {
+    font-size: 16px;
+  }
+
+  .discounts-item-4 {
+    font-size: 12px;
+    padding: 16px 10px;
+  }
+
+  .discounts-item-4__link {
+    max-width: 100%;
+  }
+
+  .discounts-item-5 {
+    padding: 5px;
+  }
+
+  .discounts-item-6 {
+    font-size: 12px;
+    padding: 16px 10px;
+  }
+
+  .discounts-item-6:after {
+    right: 5px;
+    bottom: 5px;
+  }
+
+  .discounts-item-9 {
+    font-size: 12px;
+    padding: 10px 9px;
+  }
+}
+
+
+
+
+
+
+
