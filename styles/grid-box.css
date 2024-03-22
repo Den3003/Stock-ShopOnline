@@ -56,10 +56,8 @@
     grid-column: 3;
     grid-row: 3 / 5;
   }
-
-
 }
-/* repeat(2, 1fr) 220px 1fr */
+
 
 @media (max-width: 1000px) {
   .grid-box {

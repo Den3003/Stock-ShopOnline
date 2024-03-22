@@ -4,6 +4,7 @@
 	--black: #2d2d2d;
 	--gallery: #efefef;
 	--bg-opacity: linear-gradient(rgba(47, 50, 75, .5), rgba(47, 50, 75, .5));
+	/* --bg-opacity-hover: linear-gradient(rgba(47, 50, 75, .6), rgba(47, 50, 75, .6)); */
 	--red: #f91155;
   --light-blue: #38c0eb;
   --yellow: #ffbd13;

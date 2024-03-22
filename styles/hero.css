@@ -4,7 +4,6 @@
 
 .hero__background {
   position: relative;
-  /* min-height: 480px; */
   padding: 40px 112px;
   background-image: var(--bg-opacity), url("../images/hero/banner.jpg");
   background-repeat: no-repeat;
@@ -24,12 +23,30 @@
 .hero__link {
   text-decoration: none;
   color: inherit;
+  outline: none;
+  transition: color .3s ease-in;
+}
+
+.hero__link:hover, .hero__link:focus {
+  color: var(--blue);
+}
+
+.hero__link:active {
+  color: rgb(179, 179, 238);
+}
+
+.hero__link:hover:before, .hero__link:focus:before {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+ 
 }
 
 .hero__link:before {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: 20px;
+  transition: outline .3s ease-in;
 }
 
 .hero__stock-box {
