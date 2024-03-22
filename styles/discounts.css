@@ -24,6 +24,11 @@
   background-position: center;
   background-size: cover;
   border-radius: 20px;
+  transition: box-shadow .3s ease-in-out;
+}
+
+.discounts__item:hover {
+  box-shadow: 3px 3px 30px rgba(41, 41, 41, .1), -3px -3px 30px rgba(41, 41, 41, .1);
 }
 
 .discounts-item-1 {
