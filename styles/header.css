@@ -19,12 +19,23 @@
   width: 151px;
   max-width: 100%;
   cursor: pointer;
+  transition: color .3s ease-in, background-color .3s ease-in;
 }
 
 .header__menu-svg {
   display: inline-block;
   vertical-align: text-bottom;
   margin-right: 3px;
+}
+
+.header__button:hover, .header__button:focus {
+    color: var(--blue);
+    background-color: rgb(113, 219, 219);
+}
+
+.header__button:active {
+    color: var(--main-color);
+    background-color: rgb(60, 60, 139);
 }
 
 .header__logo {

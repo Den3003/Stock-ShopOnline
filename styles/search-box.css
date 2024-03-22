@@ -24,9 +24,22 @@
   padding: 11.85px 0px;
   width: 100px;
   vertical-align: middle;
+  color: var(--main-color);
   border: none;
   border-radius: 30px;
   background-color: var(--blue);
+  cursor: pointer;
+  transition: color .3s ease-in, background-color .3s ease-in;
+}
+
+.search-box__button:hover, .search-box__button:focus {
+  color: var(--blue);
+  background-color: rgb(113, 219, 219);
+}
+
+.search-box__button:active {
+  color: var(--main-color);
+  background-color: rgb(60, 60, 139);
 }
 
 @media (max-width: 1366px) {

@@ -4,10 +4,8 @@
 	--black: #2d2d2d;
 	--gallery: #efefef;
 	--bg-opacity: linear-gradient(rgba(47, 50, 75, .5), rgba(47, 50, 75, .5));
-	/* --gray: #8f8f8f; */
-	/* --emperor: #525252; */
 	--red: #f91155;
-	/* --mercury: #e8e8e8; */
   --light-blue: #38c0eb;
   --yellow: #ffbd13;
+	--gradient-discount: linear-gradient(180deg, rgba(7, 7, 7, 0) 0%, rgba(0, 0, 0, 0.2) 100%);
 }

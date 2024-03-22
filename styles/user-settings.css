@@ -17,11 +17,21 @@
   row-gap: 10px;
   flex-direction: column;
   align-items: center;
+  color: var(--black);
+  transition: color .3s ease-in;
+  outline: none;
+}
+
+.user-settings__link:hover, .user-settings__link:focus {
+  color: var(--blue);
+}
+
+.user-settings__link:active {
+  color: rgb(153, 153, 187);
 }
 
 .user-settings__name {
   font-weight: 700;
-  color: var(--black);
 }
 
 .basket {
