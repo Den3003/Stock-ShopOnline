@@ -98,6 +98,10 @@
 
 
 @media (max-width: 480px) {
+  .user-settings {
+    gap: 20px;
+  }
+
   .user-settings__name {
     display: none;
   }
