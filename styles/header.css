@@ -86,7 +86,8 @@
   }
 
   .header__grid {
-    grid-template-columns: 170px 1fr;
+    grid-template-columns: minmax(140px, 168px) 1fr;
+    /* grid-template-columns: none; */
     row-gap: 29px;
   }
   .header__logo {
