@@ -7,6 +7,7 @@
     <link rel="preload" href="fonts/Lato-Bold.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="styles/normalize.css">
     <link rel="stylesheet" href="styles/index.css">
+    <script type="module" src="script/script.js"></script>
     <title>ShopOnline</title>
 </head>
 <body>
@@ -67,14 +68,8 @@
             <div class="container">
                 <div class="hero__background">
                     <h1 class="hero__title"><a class="hero__link" href="#">-50% на все ноутбуки</a></h1>
-                    <div class="stock-box hero__stock-box">
-                        <p class="stock-box__title">До конца акции:</p>
-                        <div class="stock-box__time">
-                          <p class="stock-box__text"><span class="stock-box__number stock-box__day">3</span> дня</p> 
-                          <p class="stock-box__text"><span class="stock-box__number stock-box__hour">8</span> часов</p> 
-                          <p class="stock-box__text"><span class="stock-box__number stock-box__minute">43</span> минуты</p>
-                        </div>
-                      </div>
+                    <div data-timer-deadline="2025-03-22 15:00" class="hero__stock-box timer">
+                    </div>
                 </div>
             </div>
         </section>
