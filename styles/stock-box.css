@@ -1,7 +1,5 @@
 .timer {
   text-align: center;
-  background-color: #8b0000;
-  padding: 30px;
 }
 
 .timer__title {
@@ -11,7 +9,23 @@
 
 .timer__items {
   display: flex;
+
   column-gap: 30px;
+  justify-content: center;
+}
+
+.timer__item {
+  white-space: nowrap;
+}
+
+.timer__item_seconds {
+  text-align: left;
+  min-width: 205px;
+}
+
+.timer__item_minutes {
+  text-align: left;
+  min-width: 191px;
 }
 
 .timer__item {
@@ -42,6 +56,13 @@
   .timer__count {
     font-size: 50px;
   }
+
+  .timer__item_seconds{
+    min-width: 168px;
+  }
+  .timer__item_minutes{
+    min-width: 159px;
+  }
 }
 
 
@@ -60,6 +81,14 @@
 
   .timer__title {
     margin: 0 0 10px;
+  }
+
+  .timer__item_minutes{
+    min-width: 99px;
+  }
+
+  .timer__item_seconds{
+    min-width: 105px;
   }
 }
 
@@ -101,5 +130,13 @@
     font-size: 20px;
     display: inline-block;
     vertical-align: sub;
+  }
+
+  .timer__item_minutes{
+    min-width: 72px;
+  }
+
+  .timer__item_seconds{
+    min-width: 76px;
   }
 }

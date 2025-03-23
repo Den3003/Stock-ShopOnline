@@ -78,7 +78,6 @@ export const timer = deadline => {
         if (timer.days <= 0) {
             itemDays.classList.add('visibly');
             itemSeconds.classList.remove('visibly');
-            timerWrapper.style.background = '#556b2f';
         }
 
         timerCountDay.textContent = timer.days;
