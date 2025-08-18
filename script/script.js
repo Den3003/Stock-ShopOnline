@@ -1,4 +1,4 @@
-import {timer} from './modules/timer.js';
+import { timer } from './modules/timer.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const timerWrapper = document.querySelector('[data-timer-deadline]');
