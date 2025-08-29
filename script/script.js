@@ -1,4 +1,6 @@
 import { timer } from './modules/timer.js';
+import { renderArticles, renderArticleText } from './modules/render.js';
+const path = window.location.pathname;
 
 document.addEventListener('DOMContentLoaded', () => {
     const timerWrapper = document.querySelector('[data-timer-deadline]');
@@ -10,3 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 });
+
+if (path.includes("blog.html")) {
+  renderArticles();
+}
+
+if (path.includes("article.html")) {
+  renderArticleText();
+}

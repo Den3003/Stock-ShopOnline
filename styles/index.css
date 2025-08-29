@@ -7,4 +7,9 @@
 @import "stock-box.css";
 @import "discounts.css";
 @import "profitable.css";
+@import "blog.css";
+@import "breadcrumb.css";
+@import "content.css";
+@import "pagination.css";
+@import "loader.css";
 @import "footer.css";

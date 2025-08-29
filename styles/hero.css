@@ -1,5 +1,5 @@
 .hero {
-  padding: 60px 0;
+  padding: 30px 0 60px;
 }
 
 .hero__background {
@@ -50,6 +50,10 @@
 
 
 @media (max-width: 1366px) {
+  .hero {
+    padding: 30px 0 22px;
+  }
+
   .hero__background {
     padding: 36px 79.66px;
   }
@@ -68,10 +72,6 @@
 
 
 @media (max-width: 1090px) {
-  .hero {
-    padding: 30px 0 22px;
-  }
-
   .hero__background {
     grid-template-rows: 148px 94px;
     border-radius: 16px;
