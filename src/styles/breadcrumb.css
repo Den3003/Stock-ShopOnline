@@ -2,10 +2,15 @@
   display: flex;
   gap: 0 10px;
   list-style: none;
+  font-weight: 700;
   margin: 0;
   padding: 0;
   color: var(--black);
   margin: 0 0 80px;
+}
+
+.breadcrumb__link {
+  text-decoration: none;
 }
 
 .breadcrumb__item:not(:last-child).breadcrumb__item:after {

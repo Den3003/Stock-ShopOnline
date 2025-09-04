@@ -2,7 +2,21 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
+    "browser-sync": "^3.0.4",
+    "del": "^8.0.0",
     "eslint-plugin-jsdoc": "^50.6.3",
-    "globals": "^16.0.0"
-  }
+    "globals": "^16.0.0",
+    "gulp": "^5.0.1",
+    "gulp-cssimport": "^7.0.0",
+    "ngrok": "^5.0.0-beta.2"
+  },
+  "name": "stock-shoponline",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Denis B.",
+  "license": "ISC"
 }

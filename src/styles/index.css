@@ -1,5 +1,6 @@
-@import "var.css";
+@import "normalize.css";
 @import "global.css";
+@import "var.css";
 @import "header.css";
 @import "search-box.css";
 @import "user-settings.css";
@@ -13,3 +14,4 @@
 @import "pagination.css";
 @import "loader.css";
 @import "footer.css";
+
