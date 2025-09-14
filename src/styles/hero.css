@@ -1,66 +1,66 @@
-.hero {
-  padding: 30px 0 60px;
-}
+/* .hero { */
+  /* padding: 30px 0 60px; */
+/* } */
 
-.hero__background {
-  position: relative;
-  padding: 40px 112px;
-  background-image: var(--bg-opacity), url("../images/hero/banner.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  border-radius: 20px;
-  display: grid;
-  grid-template-rows: repeat(2, 200px);
-  align-items: flex-end;
-}
+/* .hero__background { */
+  /* position: relative; */
+  /* padding: 40px 112px; */
+  /* background-image: var(--bg-opacity), url("../images/hero/banner.jpg"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: center; */
+  /* background-size: cover; */
+  /* border-radius: 20px; */
+  /* display: grid; */
+  /* grid-template-rows: repeat(2, 200px); */
+  /* align-items: flex-end; */
+/* } */
 
-.hero__link {
-  font-size: 70px;
-  text-decoration: none;
-  color: inherit;
-  outline: none;
-  transition: color .3s ease-in;
-}
+/* .hero__link { */
+  /* font-size: 70px; */
+  /* text-decoration: none; */
+  /* color: inherit; */
+  /* outline: none; */
+  /* transition: color .3s ease-in; */
+/* } */
 
-.hero__link:hover, .hero__link:focus {
-  color: var(--blue);
-}
+/* .hero__link:hover, .hero__link:focus { */
+  /* color: var(--blue); */
+/* } */
 
-.hero__link:active {
-  color: rgb(179, 179, 238);
-}
+/* .hero__link:active { */
+  /* color: rgb(179, 179, 238); */
+/* } */
 
-.hero__link:hover:before, .hero__link:focus:before {
-  outline: 3px solid var(--blue);
-  outline-offset: 3px;
-}
+/* .hero__link:hover:before, .hero__link:focus:before { */
+  /* outline: 3px solid var(--blue); */
+  /* outline-offset: 3px; */
+/* } */
 
-.hero__link:before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 20px;
-  transition: outline .3s ease-in;
-}
+/* .hero__link:before { */
+  /* content: ""; */
+  /* position: absolute; */
+  /* inset: 0; */
+  /* border-radius: 20px; */
+  /* transition: outline .3s ease-in; */
+/* } */
 
-.hero__stock-box {
-  place-self: self-end center;
-}
+/* .hero__stock-box { */
+  /* place-self: self-end center; */
+/* } */
 
 
 @media (max-width: 1366px) {
-  .hero {
-    padding: 30px 0 22px;
-  }
+  /* .hero { */
+    /* padding: 30px 0 22px; */
+  /* } */
 
-  .hero__background {
-    padding: 36px 79.66px;
-  }
+  /* .hero__background { */
+    /* padding: 36px 79.66px; */
+  /* } */
 
-  .hero__link {
-    font-size: 55px;
-  }
+  /* .hero__link { */
+    /* font-size: 55px; */
+  /* } */
 }
 
 
@@ -72,49 +72,49 @@
 
 
 @media (max-width: 1090px) {
-  .hero__background {
-    grid-template-rows: 148px 94px;
-    border-radius: 16px;
-  }
+  /* .hero__background { */
+    /* grid-template-rows: 148px 94px; */
+    /* border-radius: 16px; */
+  /* } */
 
-  .hero__link {
-    font-size: 40px;
-  }
+  /* .hero__link { */
+    /* font-size: 40px; */
+  /* } */
 }
 
 
 @media (max-width: 860px) {
-  .hero {
-    padding: 20px 0 40px;
-  }
+  /* .hero { */
+    /* padding: 20px 0 40px; */
+  /* } */
 
-  .hero__background {
-    background-image: var(--bg-opacity), url("../images/hero/banner860.jpg");
-    grid-template-rows: 73px 147px;
-    padding: 30px 80px;
-  }
+  /* .hero__background { */
+    /* background-image: var(--bg-opacity), url("../images/hero/banner860.jpg"); */
+    /* grid-template-rows: 73px 147px; */
+    /* padding: 30px 80px; */
+  /* } */
 
-  .hero__link {
-    font-size: 30px;
-    max-width: 100%;
-  }
+  /* .hero__link { */
+    /* font-size: 30px; */
+    /* max-width: 100%; */
+  /* } */
 }
 
 
 @media (max-width: 530px) {
-  .hero {
-    padding: 16px 0 20px;
-  }
+  /* .hero { */
+    /* padding: 16px 0 20px; */
+  /* } */
 
-  .hero__background {
-    background-image: var(--bg-opacity), url("../images/hero/banner530.jpg");
-    border-radius: 8px;
-    grid-template-rows: 49px 231px;
-    padding: 30px 29px;
-  }
+  /* .hero__background { */
+    /* background-image: var(--bg-opacity), url("../images/hero/banner530.jpg"); */
+    /* border-radius: 8px; */
+    /* grid-template-rows: 49px 231px; */
+    /* padding: 30px 29px; */
+  /* } */
 
-  .hero__link {
-    font-size: 22px;
-    text-align: center;
-  }
+  /* .hero__link { */
+    /* font-size: 22px; */
+    /* text-align: center; */
+  /* } */
 }

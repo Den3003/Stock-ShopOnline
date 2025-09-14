@@ -1,0 +1,91 @@
+@use 'abstracts/variables' as variable;
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 30px;
+
+  &__arrow-link {
+    padding: 0;
+    margin: 0;
+    font-size: 0;
+    color: variable.$color-blue;
+
+    &.disabled {
+      color: #8f8f8f;
+      cursor: default;
+      pointer-events: none;
+    }
+  }
+
+  &__arrow {
+    @media (max-width: 800px) {
+      width: 21px;
+      height: 14px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    gap: 0 18px;
+  }
+}
+
+.pagination-number {
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 0 6px;
+
+    @media (max-width: 800px) {
+      gap: 0 10px;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    border: 2px solid variable.$color-black;
+
+    &_page_active {
+      border-color: variable.$color-blue;
+      color: variable.$color-blue;
+    }
+
+    &:hover {
+      border-color: variable.$color-blue;
+      color: variable.$color-blue;
+    }
+
+    @media (max-width: 800px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    font-weight: 700;
+    line-height: 130%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      inset: 0;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 12px;
+    }
+  }
+}

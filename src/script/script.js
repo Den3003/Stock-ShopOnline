@@ -1,5 +1,7 @@
 import { timer } from './modules/timer.js';
 import { renderArticles, renderArticleText } from './modules/render.js';
+import { handleScreen } from './modules/control.js';
+const mediaQuery = window.matchMedia("(max-width: 522px)");
 const path = window.location.pathname;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 });
+
+mediaQuery.addEventListener("change", handleScreen);
+handleScreen(mediaQuery);
 
 if (path.includes("blog.html")) {
   renderArticles();

@@ -1,0 +1,112 @@
+@use 'abstracts/variables' as variable;
+
+.user-settings {
+  display: flex;
+  justify-content: end;
+  gap: 70px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    align-self: self-end;
+  }
+
+  &__link {
+    text-decoration: none;
+    display: flex;
+    row-gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    color: variable.$color-black;
+    transition: color .3s ease-in;
+    outline: none;
+
+    &:hover, &:focus {
+      color: variable.$color-blue;
+    }
+
+    &:active {
+      color: rgb(153, 153, 187);
+    }
+
+    @media (max-width: 780px) {
+      gap: 3px;
+    }
+  }
+
+  &__name {
+    font-weight: 700;
+
+    @media (max-width: 780px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 480px) {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1600px) {
+    gap: 40px;
+  }
+
+  @media (max-width: 780px) {
+    gap: 30px;
+  }
+
+  &__profile {
+    @media (max-width: 780px) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__basket {
+    @media (max-width: 780px) {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  &__favorite {
+    @media (max-width: 780px) {
+      width: 25px;
+      height: 22.94px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    gap: 20px;
+  }
+
+}
+
+.basket {
+  position: relative;
+
+  &__counter {
+    font-size: 14px;
+    position: absolute;
+    top: 0px;
+    right: 12px;
+    color: variable.$color-blue;
+    background-color: variable.$color-main;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 780px) {
+      top: -4px;
+      right: 6px;
+    }
+
+    @media (max-width: 480px) {
+      top: -4px;
+      right: -2px;
+    }
+  }
+}

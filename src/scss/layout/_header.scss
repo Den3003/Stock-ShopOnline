@@ -1,0 +1,141 @@
+@use 'abstracts/variables' as variable; 
+
+.header {
+  padding: 30px 0 0;
+  margin: 0 0 60px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(190px, 313px) minmax(151px, 250px) minmax(580px, 757px) minmax(300px, 451px);
+    grid-template-areas: "logo button search user-settings";
+    align-items: center;
+
+    @media (max-width: 1366px) {
+      grid-template-columns: 190px 1fr;
+      grid-template-areas: 
+      "logo user-settings"
+      "button search";
+      row-gap: 34px;
+    }
+
+    @media (max-width: 780px) {
+      grid-template-columns: minmax(140px, 168px) 1fr;
+      row-gap: 29px;
+    }
+
+    @media (max-width: 620px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: 
+      "logo logo"
+      "button user-settings"
+      "search search";
+    }
+
+    @media (max-width: 480px) {
+      row-gap: 20px;
+    }
+  }
+
+  &__button {
+    grid-area: button;
+    font-size: 22px;
+    line-height: 1.5;
+    color: variable.$color-main;
+    border: none;
+    padding: 9px 0 12px;
+    border-radius: 10px;
+    background-color: variable.$color-blue;
+    width: 151px;
+    max-width: 100%;
+    cursor: pointer;
+    transition: color .3s ease-in, background-color .3s ease-in;
+
+    &:hover {
+      background-color: variable.$color-blue-hover;
+    }
+
+    &:focus {
+      background-color: variable.$color-blue-focus;
+    }
+
+    &:active {
+      background-color: variable.$color-blue-hover;
+    }
+
+    @media (max-width: 780px) {
+      font-size: 16px;
+      padding: 8px 0 10px;
+      border-radius: 6px;
+      width: 115px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 12px;
+      padding: 5px 0 7px;
+      width: 79px;
+      border-radius: 4px;
+    }
+  }
+
+  &__menu-svg {
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 3px;
+
+    @media (max-width: 780px) {
+      vertical-align: bottom;
+    }
+
+    @media (max-width: 480px) {
+      vertical-align: sub;
+      width: 14px;
+      height: 14px;
+      margin-right: 0;
+    }
+  }
+
+  &__logo {
+    grid-area: logo;
+    align-self: normal;
+    padding-top: 13px;
+
+    @media (max-width: 1366px) {
+      padding: 0;
+      align-self: center;
+    }
+
+    @media (max-width: 780px) {
+      max-width: 165px;
+    }
+
+    @media (max-width: 480px) {
+      max-width: 114px;
+    }
+  }
+
+  &__search-box {
+    grid-area: search;
+
+    @media (max-width: 1366px) {
+      justify-self: self-end;
+    }
+  }
+
+  &__user-settings {
+    grid-area: user-settings;
+  }
+
+  @media (max-width: 1366px) {
+    padding: 34px 0 0;
+    margin: 0 0 30px;
+  }
+
+  @media (max-width: 780px) {
+    padding: 25px 0 0;
+  }
+
+  @media (max-width: 480px) {
+    padding: 20px 0 0;
+    margin: 0 0 16px;
+  }
+}

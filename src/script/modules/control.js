@@ -41,9 +41,9 @@ export const getVisiblePages = (current, total) => {
 export const controlLoader = (toggle) => {
   if (toggle) {
     document.body.style.overflowY = 'hidden';
-    domElements.loader.style.opacity = 1;
+    domElements.loaderWrapper.style.opacity = 1;
   } else {
-    domElements.loader.animate(
+    domElements.loaderWrapper.animate(
       [
         { opacity: "1" },
         { opacity: "0" },
@@ -52,11 +52,60 @@ export const controlLoader = (toggle) => {
         duration: 2000,
       },
     );
-    domElements.loader.style.opacity = 0;
+    domElements.loaderWrapper.style.opacity = 0;
     document.body.style.overflowY = 'unset';
     setTimeout(() => {
-      domElements.loader.style.display = "none";
+      domElements.loaderWrapper.style.display = "none";
     }, 1500);
   }
   
 };
+
+
+// Изменение размера экрана и обработчик клика если меньше 522px
+
+const openList = (button, dropDown) => {
+  closeSecondaryDrop(button, dropDown);
+  button.ariaExpanded = true;
+
+  dropDown.style.height = dropDown.scrollHeight + 'px';
+  button.classList.add('footer__button_active');
+  dropDown.classList.add('footer__list_active');
+}
+
+const closeList = (button, dropDown) => {
+  button.ariaExpanded = false;
+  button.classList.remove('footer__button_active');
+  dropDown.classList.remove('footer__list_active');
+  dropDown.style.height = '';
+}
+
+const closeSecondaryDrop = (button, dropDown) => {
+  domElements.footerWrapperList.forEach(elem => {
+    if (elem.children[0].children[0] !== button && elem.children[1] !== dropDown) {
+      closeList(elem.children[0].children[0], elem.children[1]);
+    }
+  });
+}
+
+const onClick = (e) => {
+  const target = e.target;
+  if (target.classList.contains('footer__button')) {
+    const parent = target.closest('.footer__wrapper-list');
+    const list = parent.querySelector('.footer__list');
+    list.classList.contains('footer__list_active') ? 
+      closeList(target, list) :
+      openList(target, list);
+  }
+  
+  
+}
+
+export const handleScreen = (e) => {
+  if (e.matches) {
+    domElements.footer.addEventListener("click", onClick);
+  } else {
+    domElements.footer.removeEventListener("click", onClick);
+  } 
+}
+

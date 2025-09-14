@@ -7,9 +7,11 @@ const pageNavigationList = document.querySelector('.pagination-number__list');
 const authorDetailsBlock = document.querySelector('.author');
 const paginationArrowLeft = document.querySelector('.pagination__arrow_orientation_left');
 const paginationArrowRight = document.querySelector('.pagination__arrow_orientation_right');
-const loader = document.querySelector('.loader');
-const loaderUp = document.querySelector('.loader__up');
-const loaderDown = document.querySelector('.loader__down');
+const loaderWrapper = document.querySelector('.loader-wrapper');
+const footer = document.querySelector('footer');
+const footerWrapperList = document.querySelectorAll('.footer__wrapper-list');
+const footerLists = document.querySelectorAll('.footer__list');
+const footerBtns = document.querySelectorAll('.footer__button');
 
 export default {
   articlesWrapper,
@@ -21,7 +23,9 @@ export default {
   authorDetailsBlock,
   paginationArrowLeft,
   paginationArrowRight,
-  loader,
-  loaderUp,
-  loaderDown,
+  loaderWrapper,
+  footer,
+  footerWrapperList,
+  footerLists,
+  footerBtns,
 };

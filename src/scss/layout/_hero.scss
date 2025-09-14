@@ -1,0 +1,114 @@
+@use 'abstracts/variables' as variable;
+
+.hero {
+  padding: 30px 0 60px;
+
+  &__background {
+    position: relative;
+    padding: 40px 112px;
+    background-image: variable.$gradient-bg-opacity, url("../images/hero/banner.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: repeat(2, 200px);
+    align-items: flex-end;
+
+    @media (max-width: 1366px) {
+      padding: 36px 79.66px;
+    }
+
+    @media (max-width: 1090px) {
+      grid-template-rows: 148px 94px;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 860px) {
+      background-image: variable.$gradient-bg-opacity, url("../images/hero/banner860.jpg");
+      grid-template-rows: 73px 147px;
+      padding: 30px 80px;
+    }
+
+    @media (max-width: 530px) {
+      background-image: variable.$gradient-bg-opacity, url("../images/hero/banner530.jpg");
+      border-radius: 8px;
+      grid-template-rows: 49px 231px;
+      padding: 30px 29px;
+    }
+  }
+
+  &__link {
+    font-size: 70px;
+    text-decoration: none;
+    color: inherit;
+    outline: none;
+    transition: color .3s ease-in;
+
+    &:hover, &:focus {
+      color: variable.$color-blue;
+    }
+
+    &:active {
+      color: rgb(179, 179, 238);
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 20px;
+      transition: outline .3s ease-in;
+
+      @media (max-width: 1090px) {
+        border-radius: 16px;
+      }
+
+      @media (max-width: 530px) {
+        border-radius: 8px;
+      }
+    }
+
+    &:hover:before, &:focus:before {
+      outline: 3px solid variable.$color-blue;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 1366px) {
+      font-size: 55px;
+    }
+
+    @media (max-width: 1090px) {
+      font-size: 40px;
+      border-radius: 16px;
+    }
+
+    @media (max-width: 860px) {
+      font-size: 30px;
+      max-width: 100%;
+    }
+
+    @media (max-width: 530px) {
+      font-size: 22px;
+      text-align: center;
+      border-radius: 8px;
+    }
+  }
+
+  &__stock-box {
+    place-self: self-end center;
+  }
+
+  @media (max-width: 1366px) {
+    padding: 30px 0 22px;
+  }
+
+  @media (max-width: 860px) {
+    padding: 20px 0 40px;
+  }
+
+  @media (max-width: 530px) {
+    padding: 25px 0 20px;
+  }
+
+}

@@ -1,0 +1,35 @@
+// папка abstracts
+
+@use 'abstracts/mixins';
+@use 'abstracts/variables';
+@use 'abstracts/fonts';
+
+// папка vendors
+
+@use 'vendors/variables-normalize';
+@use 'vendors/vertical-rhythm';
+@use 'vendors/normalize';
+
+// папка base
+
+@use 'base/default';
+
+// папка components
+
+@use 'components/search-box.scss';
+@use 'components/timer';
+@use 'components/user-settings';
+@use 'components/breadcrumb';
+@use 'components/pagination';
+@use 'components/loader';
+
+// папка layout
+
+@use 'layout/header';
+@use 'layout/hero';
+@use 'layout/discounts';
+@use 'layout/profitable';
+@use 'layout/blog';
+@use 'layout/content';
+@use 'layout/footer';
+

@@ -1,0 +1,644 @@
+@use 'abstracts/variables' as variable;
+
+.discounts {
+  padding: 0 0 100px;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(6, minmax(200px, 245px));
+    grid-template-rows: repeat(4, 245px);
+    grid-auto-flow: dense;
+    gap: 60px;
+
+    @media (max-width: 1725px) {
+      gap: 40px;
+    }
+
+    @media (max-width: 1690px) {
+      gap: 30px;
+    }
+
+    @media (max-width: 1530px) {
+      grid-template-rows: repeat(4, 217px);
+    }
+
+    @media (max-width: 1430px) {
+      grid-template-columns: repeat(6, minmax(180px, 220px));
+      grid-template-rows: repeat(4, 200px);
+    }
+
+    @media (max-width: 1370px) {
+      grid-template-rows: repeat(4, 190px);
+      gap: 24px;
+    }
+
+    @media (max-width: 1360px) {
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      grid-template-rows: repeat(6, 300px);
+    }
+
+    @media (max-width: 1240px) {
+      grid-template-rows: repeat(6, 271px);
+    }
+
+    @media (max-width: 1140px) {
+      grid-template-rows: repeat(6, 249px);
+    }
+
+    @media (max-width: 1070px) {
+      grid-template-rows: repeat(6, 230px);
+    }
+
+    @media (max-width: 1025px) {
+      grid-template-columns: repeat(4, minmax(200px, 1fr));
+      grid-template-rows: repeat(6, 217px);
+    }
+
+    @media (max-width: 950px) {
+      grid-template-columns: repeat(4, minmax(180px, 1fr));
+      grid-template-rows: repeat(6, 200px);
+    }
+
+    @media (max-width: 870px) {
+      grid-template-columns: repeat(2, minmax(130px, 1fr)) minmax(200px, 220px) minmax(130px, 1fr);
+      grid-template-rows: repeat(2, 140px) repeat(4, 60px) repeat(2, 140px);
+      gap: 20px;
+    }
+
+    @media (max-width: 730px) {
+      grid-template-columns: repeat(2, minmax(130px, 1fr));
+      grid-template-rows: repeat(9, 250px);
+    }
+
+    @media (max-width: 540px) {
+      grid-template-rows: repeat(9, 220px);
+    }
+
+    @media (max-width: 480px) {
+      grid-template-rows: repeat(9, 200px);
+    }
+
+    @media (max-width: 370px) {
+      grid-template-rows: repeat(9, 145px);
+    }
+
+    @media (max-width: 340px) {
+      grid-template-rows: repeat(9, 130px);
+    }
+  }
+
+  &__item {
+    max-width: 100%;
+    height: auto;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+
+    &-percentage:after {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      width: 88px;
+      height: 88px;
+      background-color: variable.$color-yellow;
+      border-radius: 50%;
+      font-size: 30px;
+      font-weight: 700;
+      position: absolute;
+
+      @media (max-width: 950px) {
+        width: 63px;
+        height: 63px;
+        font-size: 24px;
+      }
+
+      @media (max-width: 870px) {
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+        font-weight: 700;
+      }
+    }
+
+    &-percentage_position_left-top:after {
+      top: 20px;
+      left: 20px;
+
+      @media (max-width: 1690px) {
+        top: 10px;
+        left: 10px;
+      }
+
+      @media (max-width: 480px) {
+        top: 5px;
+        left: 5px;
+      }
+    }
+
+    &-percentage_position_right-bottom:after {
+      bottom: 20px;
+      right: 20px;
+
+      @media (max-width: 1690px) {
+        bottom: 10px;
+        right: 10px;
+      }
+
+      @media (max-width: 480px) {
+        bottom: 5px;
+        right: 5px;
+      }
+    }
+
+    @media (max-width: 1690px) {
+      border-radius: 16px;
+    }
+
+    @media (max-width: 870px) {
+      border-radius: 12px;
+    }
+
+    @media (max-width: 480px) {
+      border-radius: 8px;
+    }
+  }
+
+  @media (max-width: 1064px) {
+    padding: 0 0 90px;
+  }
+
+  @media (max-width: 870px) {
+    padding: 0 0 60px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 0 70px;
+  }
+
+}
+
+// discounts-item-1
+
+.discounts-item-1 {
+  background-image: variable.$gradient-discount, url("../images/discounts/book.jpg");
+  font-size: 30px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  &__span {
+    font-size: 40px;
+    font-weight: 700;
+
+    @media (max-width: 1690px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 950px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 1690px) {
+    font-size: 24px;
+    padding: 20px 13px 20px 9px;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 870px) {
+    display: block;
+    padding: 48px 30px 15px 9px;
+    line-height: 110%;
+  }
+
+  @media (max-width: 800px) {
+    padding: 48px 12px 15px 9px;
+  }
+
+  @media (max-width: 730px) {
+    padding: 48px 55px 15px 9px;
+  }
+
+  @media (max-width: 540px) {
+    padding: 110px 60px 15px 9px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 90px 100px 10px 10px;
+  }
+
+  @media (max-width: 370px) {
+    padding: 90px 65px 10px 10px;
+  }
+
+  @media (max-width: 340px) {
+    padding: 80px 34px 10px 10px;
+  }
+}
+
+// discounts-item-2
+
+.discounts-item-2 {
+  background-image: variable.$gradient-discount, url("../images/discounts/watch.jpg");
+  font-size: 30px;
+  font-weight: 700;
+  padding: 78px 20px 20px 14px;
+
+  &:after {
+    content: "-25%";
+  }
+
+  @media (max-width: 1800px) {
+    font-size: 27px;
+  }
+
+  @media (max-width: 1690px) {
+    font-size: 24px;
+    padding: 58px 10px 10px 9px;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 870px) {
+    font-size: 16px;
+    padding: 15px 10px 10px 5px;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 40px 10px 10px 5px;
+  }
+
+  @media (max-width: 340px) {
+    padding: 28px 10px 10px 5px;
+  }
+}
+
+// discounts-item-3
+
+.discounts-item-3 {
+  background-image: variable.$gradient-discount, url("../images/discounts/red-sneakers.jpg");
+  grid-area: 2 / 1 / 3 / 3;
+
+  &:after {
+    content: "-40%";
+  }
+
+  @media (max-width: 480px) {
+    padding: 5px;
+  }
+}
+
+// discounts-item-4
+
+.discounts-item-4 {
+  background-image: variable.$gradient-discount, url("../images/discounts/white-sneakers.jpg");
+  padding: 22px 20px;
+  display: grid;
+  align-items: end;
+  grid-area: 1 / 3 / 3 / 5;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-size: 40px;
+    background-color: variable.$color-light-blue;
+    border-radius: 20px;
+    margin: 0;
+    padding: 31px 23px;
+
+    @media (max-width: 1690px) {
+      font-size: 35px;
+      padding: 29px 25px;
+    }
+
+    @media (max-width: 1530px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 950px) {
+      font-size: 20px;
+    }
+
+    @media (max-width: 870px) {
+      font-size: 16px;
+      padding: 16px 28px;
+      display: inline-block;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 800px) {
+      padding: 16px 20px;
+    }
+
+    @media (max-width: 740px) {
+      display: flex;
+    }
+
+    @media (max-width: 730px) {
+      display: block;
+    }
+
+    @media (max-width: 370px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 340px) {
+      padding: 9px 25px;
+    }
+  }
+
+  &__span {
+    font-size: 56px;
+    font-weight: 700;
+
+    @media (max-width: 1690px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 950px) {
+      font-size: 30px;
+    }
+
+    @media (max-width: 870px) {
+      font-size: 26px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 16px;
+    }
+  }
+
+  @media (max-width: 1690px) {
+    font-size: 30px;
+    padding: 22px;
+  }
+
+  @media (max-width: 870px) {
+    padding: 10px;
+    grid-row: 1 / span 3;
+  }
+
+  @media (max-width: 730px) {
+    grid-area: 3 / 1 / 5 / 3;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+  }
+}
+
+// discounts-item-5
+
+.discounts-item-5 {
+  background-image: variable.$gradient-discount, url("../images/discounts/gifts.jpg");
+  font-size: 40px;
+  padding: 30px;
+  font-weight: 700;
+  display: grid;
+  align-items: end;
+  grid-column: 5 / span 2;
+
+  @media (max-width: 1690px) {
+    font-size: 30px;
+    padding: 22px 20px;
+  }
+
+  @media (max-width: 1360px) {
+    grid-area: 3 / 1 / 4 / 3;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 870px) {
+    font-size: 16px;
+    grid-row: 3 / span 2;
+    padding: 20px 160px 20px 20px;
+  }
+
+  @media (max-width: 800px) {
+    padding: 20px 90px 20px 20px;
+  }
+
+  @media (max-width: 730px) {
+    grid-area: 5 / 1 / 6 / 3;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 16px 10px;
+  }
+}
+
+// discounts-item-6
+
+.discounts-item-6 {
+  background-image: variable.$gradient-discount, url("../images/discounts/notebook.jpg");
+  position: relative;
+  font-size: 40px;
+  font-weight: 700;
+  padding: 30px;
+  display: grid;
+  align-items: end;
+  grid-column: 5 / span 2;
+
+  &:after {
+    content: "-15%";
+  }
+
+  @media (max-width: 1690px) {
+    font-size: 30px;
+    padding: 20px;
+  }
+
+  @media (max-width: 1360px) {
+    grid-area: 4 / 1 / 5 / 3;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 20px;
+  }
+
+  @media (max-width: 870px) {
+    font-size: 16px;
+    grid-row: 5 / span 2;
+  }
+
+  @media (max-width: 730px) {
+    grid-area: 6 / 1 / 7 / 3;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 16px 10px;
+  }
+}
+
+// discounts-item-7
+
+.discounts-item-7 {
+  background-image: variable.$gradient-discount, url("../images/discounts/decoration.jpg");
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: variable.$color-red;
+  padding: 50px;
+  text-transform: uppercase;
+  display: grid;
+  align-items: end;
+  grid-area: 3 / 1 / 5 / 5;
+
+  &__text {
+    max-width: max-content;
+    margin: 0;
+    border-radius: 20px;
+    padding: 32px 42px;
+    background-color: variable.$color-main;
+
+    @media (max-width: 1690px) {
+      border-radius: 16px;
+      padding: 24px 46px 23px 47px;
+    }
+
+    @media (max-width: 950px) {
+      font-size: 25px;
+      padding: 22px 33px 22px 34px;
+    }
+
+    @media (max-width: 730px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 14px;
+      padding: 19px 30px 19px;
+    }
+
+    @media (max-width: 370px) {
+      font-size: 12px;
+      padding: 7px 35px 9px;
+      border-radius: 6px;
+    }
+  }
+
+  @media (max-width: 1690px) {
+    font-size: 30px;
+    padding: 39px 30px;
+  }
+
+  @media (max-width: 1360px) {
+    grid-area: 5 / 1 / 7 / 5;
+  }
+
+  @media (max-width: 870px) {
+    grid-row: 7 / span 2;
+  }
+
+  @media (max-width: 730px) {
+    grid-area: 9 / 1 / 10 / 3;
+  }
+
+  @media (max-width: 480px) {
+    padding: 35px 25px;
+  }
+
+  @media (max-width: 370px) {
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+  }
+}
+
+// discounts-item-8
+
+.discounts-item-8 {
+  background-image: variable.$gradient-discount, url("../images/discounts/dress.jpg");
+  grid-row: 3 / span 2;
+
+  &:after {
+    content: "-55%";
+  }
+
+  @media (max-width: 870px) {
+    background-image: variable.$gradient-discount, url("../images/discounts/dress768.jpg");
+    background-position: top;
+    grid-area: 4 / 3 / 7 / 4;
+  }
+
+  @media (max-width: 730px) {
+    background-image: variable.$gradient-discount, url("../images/discounts/dress.jpg");
+    background-position: center;
+    grid-area: 7 / 1 / 9 / 2;
+  }
+}
+
+// discounts-item-9
+
+.discounts-item-9 {
+  background-image: variable.$gradient-discount, url("../images/discounts/chemistry.jpg");
+  font-size: 30px;
+  font-weight: 700;
+  padding: 20px;
+  display: grid;
+  align-items: end;
+
+  &:after {
+    content: "-25%";
+  }
+
+  @media (max-width: 1690px) {
+    font-size: 20px;
+    padding: 14px;
+  }
+
+  @media (max-width: 950px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 870px) {
+    font-size: 16px;
+    grid-row: 4 / span 2;
+  }
+
+  @media (max-width: 730px) {
+    grid-area: 7 / 2 / 8 / 3;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 12px;
+    padding: 10px 9px;
+  }
+}
+
+// discounts-item-10
+
+.discounts-item-10 {
+  background-image: variable.$gradient-discount, url("../images/discounts/balls.jpg");
+
+  @media (max-width: 870px) {
+    background-image: variable.$gradient-discount, url("../images/discounts/balls-768.jpg");
+  }
+
+  @media (max-width: 730px) {
+    background-image: variable.$gradient-discount, url("../images/discounts/balls.jpg");
+  }
+}
