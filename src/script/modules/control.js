@@ -109,3 +109,25 @@ export const handleScreen = (e) => {
   } 
 }
 
+
+// Кнопка в header
+
+export const navMenu = () => {
+  document.body.addEventListener('click', (e) => {
+    const target = e.target;
+    if(target === domElements.headerMenu) {
+      domElements.navigation.classList.toggle('navigation_active');
+      if(domElements.navigation.classList.contains('navigation_active')) {
+        domElements.menuLines.classList.add('lines_active');
+        domElements.navigation.style.height = domElements.navigation.scrollHeight + 'px';
+      } else {
+        domElements.menuLines.classList.remove('lines_active');
+        domElements.navigation.style.height = '';
+      }
+    } else if(!target.closest('.navigation') && domElements.navigation.classList.contains('navigation_active')) {
+      domElements.navigation.classList.remove('navigation_active');
+      domElements.menuLines.classList.remove('lines_active');
+      domElements.navigation.style.height = '';
+    }
+  })
+}

@@ -1,0 +1,68 @@
+@use 'abstracts/variables' as variable; 
+
+.navigation {
+  background-color: variable.$color-main;
+  color: variable.$color-black;
+  overflow: hidden;
+  padding: 0;
+  height: 0;
+  position: absolute;
+  z-index: 2;
+  transition: height .4s ease-in-out;
+
+  &__title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 130%;
+    margin: 0 0 33px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    width: max-content;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 22px;
+    line-height: 150%;
+  }
+
+  &_active {
+    // padding: 52px 0 56px;
+    // height: auto;
+    // transition: height .4s ease-in-out;
+  }
+}
+
+.navigation-grid {
+  padding: 52px 0 56px;
+  display: grid;
+  grid-template-columns: minmax(520px, 755px) minmax(300px, 480px) minmax(307px, 570px);
+}
+
+.catalog {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px 0;
+    max-width: 502px;
+    max-height: 250px;
+  }
+}
+
+.buyers {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+  }
+}

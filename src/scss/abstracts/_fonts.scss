@@ -2,7 +2,7 @@
 @use 'variables' as variable;
 
 
-@font-face {
+@font-face { 
   @include mixins.font(variable.$font-default, 400)
 }
 

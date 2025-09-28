@@ -1,3 +1,6 @@
+const headerMenu = document.querySelector('.js-header-button');
+const navigation = document.querySelector('.js-navigation');
+const menuLines = document.querySelector('.js-lines');
 const articlesWrapper = document.querySelector('.articles__items');
 const breadCrumpArticleTitle = document.querySelector('.js-breadcrumb-article-title');
 const articleTitle = document.querySelector('.page__title');
@@ -14,6 +17,9 @@ const footerLists = document.querySelectorAll('.footer__list');
 const footerBtns = document.querySelectorAll('.footer__button');
 
 export default {
+  headerMenu,
+  navigation,
+  menuLines,
   articlesWrapper,
   breadCrumpArticleTitle,
   articleTitle,

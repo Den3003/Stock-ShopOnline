@@ -1,6 +1,6 @@
 import { timer } from './modules/timer.js';
 import { renderArticles, renderArticleText } from './modules/render.js';
-import { handleScreen } from './modules/control.js';
+import { handleScreen, navMenu } from './modules/control.js';
 const mediaQuery = window.matchMedia("(max-width: 522px)");
 const path = window.location.pathname;
 
@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 });
+
+navMenu();
 
 mediaQuery.addEventListener("change", handleScreen);
 handleScreen(mediaQuery);

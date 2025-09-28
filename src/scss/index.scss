@@ -17,6 +17,7 @@
 // папка components
 
 @use 'components/search-box.scss';
+@use 'components/lines';
 @use 'components/timer';
 @use 'components/user-settings';
 @use 'components/breadcrumb';
@@ -26,6 +27,7 @@
 // папка layout
 
 @use 'layout/header';
+@use 'layout/navigation';
 @use 'layout/hero';
 @use 'layout/discounts';
 @use 'layout/profitable';
