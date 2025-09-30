@@ -27,3 +27,4 @@ if (path.includes("blog.html")) {
 if (path.includes("article.html")) {
   renderArticleText();
 }
+
