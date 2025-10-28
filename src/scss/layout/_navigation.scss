@@ -7,6 +7,7 @@
   padding: 0;
   height: 0;
   position: absolute;
+  left: 0;
   z-index: 2;
   transition: height .4s ease-in-out;
 
@@ -42,7 +43,7 @@
 }
 
 .navigation-grid {
-  padding: 52px 0 56px;
+  padding: 52px 30px 56px;
   display: grid;
   grid-template-columns: minmax(520px, 755px) minmax(300px, 480px) minmax(307px, 570px);
 }
