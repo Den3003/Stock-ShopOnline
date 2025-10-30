@@ -1,8 +1,11 @@
 import gulp from 'gulp';
-import browserSync from 'browser-sync';
-import sassPkg from 'sass';
+import browserSync from 'browser-sync'; // Для обновления
+import sassPkg from 'sass'; // Нужен для того чтобы работал наш gulp-sass, они взаимосвязанны 
 import gulpSass from 'gulp-sass';
-import { deleteSync } from 'del';
+import rename from 'gulp-rename';
+const sass = gulpSass(sassPkg);
+
+import { deleteSync } from 'del'; // Для отчистки папки dist 
 import ngrok from 'ngrok'; // Туннель для показа сайта
 import htmlMin from 'gulp-htmlmin'; // Название импорта произвольное. Пакет для минификации html файлов
 import sourcemaps from 'gulp-sourcemaps'; // Название импорта произвольное. Пакет для карты файлов(нахождении стилей конкретного элемента)
@@ -19,8 +22,8 @@ import gulpWebp from 'gulp-webp';
 import gulpAvif from 'gulp-avif';
 
 import tap from 'gulp-tap'; // Пакет для лога что происходит в тасках 
-import { stream as critical } from 'critical'; // Критические стили
-import gulpif from 'gulp-if'; // Пакет для проверки условий
+import { stream as critical } from 'critical'; // Критические стили выделяем
+import gulpif from 'gulp-if'; // Пакет для проверки условий(в каком случае использовать определенные таски в каком нет, но либо какие то функции вызывать) 
 
 // Пакеты для стилей css
 
@@ -30,15 +33,43 @@ import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
 
 import { exec } from 'child_process'; // прямой вызов webpack CLI через exec
-
-
+import { once } from 'events';
 
 
 const prepros = true;
 
-let dev = false;
+let dev = false;  // Переключатель сборки
 
-const sass = gulpSass(sassPkg);
+const path = {
+  dist: {
+    base: 'dist/',
+    html: 'dist/', // Вдруг путь поменяется туда куда мы будем складывать html, то тогда необходимо будет здесь путь поменять
+    css: 'dist/styles/',
+    images: 'dist/images/',
+    fonts: 'dist/fonts/',
+  },
+  src: {
+    base: 'src/',
+    html: 'src/*.html',
+    pug: 'src/pug/*.pug', // Если используется pug
+    scss: 'src/scss/**/*.scss',
+    css: 'src/styles/index.css',
+    images: 'src/images/**/*.{jpg,jpeg,png,svg,gif}',
+    imagesF: 'src/images/**/*.{jpg,jpeg,png}', // Это для картинок которые будут переведены в другой формат
+    svgSprite: 'src/svg/**/*.svg', // Где мы берем svg, специальная папка, в этой папке лежат именно те svg, которые мы хотим собрать в sprite.svg. Если используется файл sprite.svg
+    assets: ['src/fonts/**/*.*', 'src/icons/**/*.*', 'src/video/**/*.*', 'src/public/**/*.*', 'src/robot.txt', 'src/site.webmanifest', 'src/sitemap.xml',],
+  },
+  watch: {
+    html: 'src/**/*.html',
+    js: 'src/script/**/*.js',
+    pug: 'src/**/*.pug',
+    css: 'src/styles/**/*.css',
+    scss: 'src/scss/**/*.scss',
+    svg: 'src/svg/**/*.svg',
+    images: 'src/images/**/*.{jpg,jpeg,png,svg,gif}',
+    imagesF: 'src/images/**/*.{jpg,jpeg,png}',
+  }
+}
 
 //! Задачи
 
@@ -53,18 +84,18 @@ process.on('warning', (warning) => {
 
 
 export const html = () => gulp
-  .src('src/*.html')
-  .pipe(htmlMin({
+  .src(path.src.html)
+  .pipe(gulpif(!dev, htmlMin({
     removeComments: true,
     collapseWhitespace: true,
-  }))
-  .pipe(gulp.dest('dist'))
+  })))
+  .pipe(gulp.dest(path.dist.html))
   .pipe(browserSync.stream());
 
 export const style = () => {
   if (prepros) {
     return gulp
-      .src('src/scss/**/*.scss')
+      .src(path.src.scss)
       .pipe(gulpif(dev, sourcemaps.init()))
       .pipe(sass().on('error', sass.logError))
       .pipe(postcss([
@@ -72,21 +103,27 @@ export const style = () => {
         autoprefixer(),
         !dev && cssnano() // минификация только в продакшн
       ].filter(Boolean)))
+      .pipe(rename({
+        suffix: '.min'
+      }))
       .pipe(gulpif(dev, sourcemaps.write('../maps')))
-      .pipe(gulp.dest('dist/styles'))
+      .pipe(gulp.dest(path.dist.css))
       .pipe(browserSync.stream());
   }
 
   return gulp
-    .src('src/styles/index.css')
+    .src(path.src.css)
     .pipe(gulpif(dev, sourcemaps.init()))
     .pipe(postcss([
         postcssImport(),
         autoprefixer(),
         !dev && cssnano() // минификация только в продакшн
       ].filter(Boolean)))
+    .pipe(rename({
+        suffix: '.min'
+      }))
     .pipe(gulpif(dev, sourcemaps.write('../maps')))
-    .pipe(gulp.dest('dist/styles'))
+    .pipe(gulp.dest(path.dist.css))
     .pipe(browserSync.stream());
 }
 
@@ -100,7 +137,7 @@ export const js = (cb) => {
 };
 
 export const img = () => gulp
-  .src('src/images/**/*.{jpg,jpeg,png,svg,gif}', { encoding: false })
+  .src(path.src.images, { encoding: false })
   .pipe(gulpif(!dev, imagemin([
     imageminMozjpeg({ quality: 75, progressive: true }),
     imageminPngquant({ quality: [0.7, 0.9] }),
@@ -115,47 +152,51 @@ export const img = () => gulp
       ]
     })
   ])))
-  .pipe(gulp.dest('dist/images'))
+  .pipe(gulp.dest(path.dist.images))
   .pipe(tap(file => {
     console.log(`Обработан файл: ${file.relative}`);
   }))
   .pipe(browserSync.stream());
 
 export const webp = () => gulp
-  .src('src/images/**/*.{jpg,jpeg,png}')
+  .src(path.src.imagesF)
   .pipe(gulpWebp({
-    quality: 60
+    quality: dev ? 100 : 60
   }))
-  .pipe(gulp.dest('dist/images'))
-  .pipe(browserSync.stream());
+  .pipe(gulp.dest(path.dist.images))
+  .pipe(browserSync.stream({
+    once: true
+  }));
 
 export const avif = () => gulp
-  .src('src/images/**/*.{jpg,jpeg,png}', { encoding: false })
+  .src(path.src.imagesF, { encoding: false })
   .pipe(gulpAvif({
-    quality: 80,
+    quality: dev ? 100 : 50,
     verbose: true
   }))
-  .pipe(gulp.dest('dist/images'))
-  .pipe(browserSync.stream());
+  .pipe(gulp.dest(path.dist.images))
+  .pipe(browserSync.stream({
+    once: true
+  }));
 
 export const critCSS = () => gulp
   .src('dist/index.html')
   .pipe(critical({
-    base: 'dist/',
+    base: path.dist.base,
     inline: true,
-    css: ['dist/styles/index.css']
+    css: ['dist/styles/index.min.css']
   }))
   .on('error', err => {
     console.error(err.message)
   })
-  .pipe(gulp.dest('dist'))
+  .pipe(gulp.dest(path.dist.base))
 
 export const copy = () => gulp
-  .src('src/fonts/**/*', {
+  .src(path.src.assets[0], {
     base: 'src',
     encoding: false
   })
-  .pipe(gulp.dest('dist'))
+  .pipe(gulp.dest(path.dist.base))
   .pipe(browserSync.stream({
     once: true
   }));
@@ -169,13 +210,13 @@ export const server = async (done) => {
     }
   })
 
-  gulp.watch('./src/**/*.html', html);
-  gulp.watch(prepros ? './src/scss/**/*.scss' : './src/styles/**/*.css', style);
-  gulp.watch('src/images/**/*.{jpg,jpeg,png,svg,gif}', img);
-  gulp.watch('./src/script/**/*.js', js);
+  gulp.watch(path.watch.html, html);
+  gulp.watch(prepros ? path.watch.scss : path.watch.css, style);
+  gulp.watch(path.watch.images, img);
+  gulp.watch(path.watch.js, js);
   gulp.watch('./src/fonts/**/*', copy);
-  gulp.watch('./src/images/**/*.{jpg,jpeg,png}', webp);
-  gulp.watch('./src/images/**/*.{jpg,jpeg,png}', avif);
+  gulp.watch(path.watch.imagesF, webp);
+  gulp.watch(path.watch.imagesF, avif);
 
   if (process.argv.includes('--tunnel')) {  // Чтобы запустить gulp c туннелем надо использовать команду gulp --tunnel
     const url = await ngrok.connect(3000);
