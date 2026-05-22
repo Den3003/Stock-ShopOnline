@@ -1,3 +1,5 @@
+@use 'sass:list';
+
 @mixin font($name, $weight) {
   font: {
     family: $name;
@@ -6,4 +8,53 @@
   }
   src: url('../fonts/#{ $name }-#{ $weight }.woff2') format("woff2"),
       url('../fonts/#{ $name }-#{ $weight }.woff') format("woff");
+}
+
+
+// Вспомогательная функция – генератор image-set() значения
+
+@function build-image-set-options($path, $formats, $resolutions, $use-type: true) {
+  $options: ();
+  @each $fmt in $formats {
+    $mime: null;
+    @if $use-type {
+      @if $fmt == avif { $mime: "image/avif"; }
+      @if $fmt == webp { $mime: "image/webp"; }
+      @if $fmt == jp2 { $mime: "image/jp2"; }
+    }
+    @each $res in $resolutions {
+      $suffix: if($res == 1x, "", "@#{$res}");
+      $url: url("#{$path}#{$suffix}.#{$fmt}");
+      $option: $url $res;
+      @if $mime { $option: $option type($mime); }
+      $options: list.append($options, $option, comma);
+    }
+  }
+
+  @return $options;
+
+}
+
+
+@mixin bg-image-set(
+  $path,
+  $gradient: null,
+  $formats: (avif, webp, jpg),
+  $resolutions: (1x, 2x),
+  $fallback-ext: "jpg"
+) {
+  $fallback-img: url("#{$path}.#{fallback-ext}");
+  $layers-fallback: if($gradient, ($gradient, $fallback-img), $fallback-img);
+
+  $webkit-options: build-image-set-options($path, $formats, $resolutions, false);
+  $webkit-set: -webkit-image-set(#{$webkit-options});
+  $layers-webkit: if($gradient, ($gradient, $webkit-set), $webkit-set);
+
+  $modern-options: build-image-set-options($path, $formats, $resolutions, true);
+  $modern-set: image-set(#{$modern-options});
+  $layers-modern: if($gradient, ($gradient, $modern-set), $modern-set);
+
+  background-image: $layers-fallback;
+  background-image: $layers-webkit;
+  background-image: $layers-modern;
 }

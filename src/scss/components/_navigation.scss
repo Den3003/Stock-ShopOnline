@@ -1,0 +1,204 @@
+@use 'abstracts/variables' as variable; 
+
+.navigation {
+  background-color: variable.$color-main;
+  color: variable.$color-black;
+  width: 100%;
+  padding: 0;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  z-index: 4;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: all .3s ease;
+
+  &__title {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 130%;
+    margin: 0 0 33px;
+
+    @media (max-width: 940px) {
+      font-size: 29px;
+    }
+
+    @media (max-width: 780px) {
+      font-size: 26px;
+      margin: 0 0 20px;
+    }
+
+    @media (max-width: 470px) {
+      font-size: 23px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 20px;
+      margin: 0 0 15px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    width: max-content;
+    font-size: 0;
+
+    @media (max-width: 780px) {
+      max-width: 160px;
+    }
+
+    @media (max-width: 350px) {
+      max-width: 130px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    font-size: 22px;
+    line-height: 150%;
+
+    &:hover {
+      color: variable.$color-blue-hover;
+    }
+
+    &:focus {
+      color: variable.$color-blue-focus;
+    }
+
+    &:active {
+      color: variable.$color-blue-hover;
+    }
+
+    @media (max-width: 1065px) {
+      font-size: 20px;
+    }
+
+    @media (max-width: 940px) {
+      font-size: 19px;
+    }
+
+    @media (max-width: 780px) {
+      font-size: 16px;
+    }
+
+    @media (max-width: 470px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 12px;
+    }
+  }
+
+  &_active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
+
+.navigation-grid {
+  padding: 52px 0 56px;
+  display: grid;
+  grid-template-columns: minmax(460px, 755px) minmax(250px, 480px) minmax(307px, 570px);
+  grid-template-areas: "catalog buyers contacts";
+  
+  @media (max-width: 1140px) {
+    grid-template-columns: minmax(462px, 512px) minmax(250px, 480px) minmax(125px, 570px);
+  }
+  
+  @media (max-width: 1065px) {
+    grid-template-columns: minmax(370px, 512px) minmax(205px, 480px) minmax(125px, 570px);
+
+  }
+
+  @media (max-width: 940px) {
+    padding: 40px 0 45px;
+  }
+
+  @media (max-width: 840px) {
+    grid-template-columns: minmax(255px, 450px) minmax(128px, 480px);
+    grid-template-areas: 
+      "catalog buyers"
+      "catalog contacts";
+  }
+
+  @media (max-width: 610px) {
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "catalog"
+      "buyers"
+      "contacts";
+  }
+
+}
+
+.catalog {
+  grid-area: catalog;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 30px;
+    max-width: 502px;
+
+    @media (max-width: 1280px) {
+      max-width: 460px;
+    }
+
+    @media (max-width: 1140px) {
+      max-height: 508px;
+    }
+
+    @media (max-width: 940px) {
+      gap: 15px 15px;
+    }
+
+    @media (max-width: 780px) {
+      align-items: center;
+      gap: 10px 10px;
+    }
+
+    @media (max-width: 350px) {
+      gap: 8px 8px;
+    }
+  }
+}
+
+.buyers {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px 0;
+    grid-area: buyers;
+
+    @media (max-width: 940px) {
+      gap: 15px 0;
+    }
+
+    @media (max-width: 840px) {
+      margin: 0 0 20px;
+    }
+
+    @media (max-width: 780px) {
+      gap: 10px 0;
+    }
+  }
+}
+
+.navigation-contacts {
+  
+  @media (max-width: 840px) {
+    grid-area: contacts;
+  }
+  
+}

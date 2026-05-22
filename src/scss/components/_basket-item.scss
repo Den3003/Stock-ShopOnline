@@ -1,0 +1,297 @@
+@use 'abstracts/variables' as variable;
+
+.basket-item {
+  display: grid;
+  grid-template-columns: minmax(182px, 182px) minmax(490px, 670px) minmax(150px, 242px) 1fr;
+  grid-template-areas: "checkboxImageWrapper info quantity pricing";
+  align-items: start;
+
+  &:first-child {
+    padding-top: 20px;
+  }
+
+  &:not(:first-child) {
+    padding-top: 30px;
+  }
+  
+  /* &:not(:last-child) {
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    @media (max-width: 350px) {
+      padding-top: 15px;
+    }
+
+  } */
+
+  &_not-item {
+    font-size: 22px;
+    line-height: 1.5;
+    padding: 20px 0 0;
+    
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 12px;
+    }
+  }
+
+  &__checkbox-image-wrapper {
+    grid-area: checkboxImageWrapper;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      position: relative;
+      width: 91px;
+      height: 91px;
+    }
+  }
+
+  &__info {
+    grid-area: info;
+  }
+
+  &__checkbox {
+    margin-right: 20px;
+
+    @media (max-width: 768px) {
+      position: absolute;
+      left: 0;
+      top: 0;
+      margin: 0;
+    }
+  }
+
+  &__image-wrapper {
+    width: 130px;
+    height: 130px;
+
+    @media (max-width: 768px) {
+      width: 91px;
+      height: 91px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 22px;
+    line-height: 1.5;
+    margin: 0 0 8px;
+
+    @media (max-width: 1570px) {
+      max-width: 300px;
+    }
+
+    @media (max-width: 1510px) {
+      max-width: 600px;
+    }
+
+    @media (max-width: 1210px) {
+      max-width: 450px;
+    }
+
+    @media (max-width: 1090px) {
+      max-width: 300px;
+    }
+    
+    @media (max-width: 768px) {
+      max-width: none;
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 15px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 12px;
+    }
+  }
+
+  &__attrs {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: variable.$color-gray-400;
+
+    @media (max-width: 768px) {
+      font-size: 10px;
+    }
+
+    @media (max-width: 440px) {
+      display: none;
+    }
+  }
+
+  &__quantity {
+    grid-area: quantity;
+    
+    @media (max-width: 920px) {
+      justify-self: center;
+    }    
+  }
+
+  &__pricing {
+    grid-area: pricing;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    white-space: nowrap;
+
+    @media (max-width: 768px) {
+      align-items: center;
+      flex-direction: row;
+      gap: 0 12px;
+      margin: 0 0 7px;
+    }
+
+    @media (max-width: 440px) {
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 350px) {
+      gap: 9px 20px;
+      margin: 0 0 12px;
+    }
+  }
+
+  &__price {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 6px;
+
+    @media (max-width: 768px) {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 19px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 16px;
+    }
+
+  }
+
+  &__price-old {
+    display: none;
+    font-size: 18px;
+    color: variable.$color-gray-400;
+    margin: 0 0 15px;
+    // text-decoration: line-through;
+
+    &_visible {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      margin: 0;
+      font-size: 12px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
+    }
+  }
+
+  &__credit {
+    line-height: 1.3;
+    text-decoration: none;
+    color: variable.$color-blue;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
+    }
+  }
+
+  &__remove {
+    display: none;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    justify-self: center;
+
+    @media (max-width: 768px) {
+      display: block;
+      grid-area: remove;
+      justify-self: end;
+      margin-right: 5px;
+      align-self: self-end;
+    }
+  }
+
+  @media (max-width: 1570px) {
+    grid-template-columns: minmax(182px, 182px) minmax(300px, 670px) minmax(120px, 242px) 1fr;
+    grid-template-areas: "checkboxImageWrapper info quantity pricing";
+  }
+
+  @media (max-width: 1385px) {
+    grid-template-columns: minmax(182px, 182px) minmax(300px, 670px) minmax(120px, 242px) minmax(143px, 145px);
+    grid-template-areas: "checkboxImageWrapper info quantity pricing";
+  }
+
+  @media (max-width: 920px) {
+
+    grid-template-columns: minmax(182px, 182px) minmax(300px, 670px) minmax(143px, 145px);
+    grid-template-areas: 
+    "checkboxImageWrapper info pricing"
+    "quantity quantity quantity";
+    
+    &:not(:first-child) {
+      padding-top: 20px;
+    }
+    padding: 20px 0;
+    
+    &:not(:last-child) {
+      border-bottom: 1px solid variable.$color-gray;
+    }
+    
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(91px, 91px) 1fr;
+    grid-template-areas: 
+      "checkboxImageWrapper pricing"
+      "checkboxImageWrapper info"
+      "quantity remove";
+    gap: 0 14px;
+  }
+
+  @media (max-width: 350px) {
+    padding: 15px 0;
+
+    &:first-child {
+      padding-top: 15px;
+    }
+
+    &:not(:first-child) {
+      padding-top: 15px;
+    }
+  }
+}

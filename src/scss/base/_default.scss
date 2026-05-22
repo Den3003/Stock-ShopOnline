@@ -12,6 +12,9 @@ html {
 body {
   min-width: 320px;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
   font-family: variable.$font-default, sans-serif;
   background-color: variable.$color-main;
   color: variable.$color-main;
@@ -19,21 +22,50 @@ body {
   margin: 0;
 }
 
+/* Отключаем системную синюю подсветку при тапе на iOS/Android */
+
+input, 
+button, 
+a {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); /* Для старых версий Android */
+}
+
+.content {
+  flex-grow: 1;
+}
+
 .container {
-  max-width: 1830px;
-  padding: 0 30px;
+  max-width: 1920px;
+  padding: 0 75px;
   margin: 0 auto;
 
+  @media (max-width: 1500px) {
+    padding: 0 50px;
+  }
+
+  @media (max-width: 1450px) {
+    padding: 0 40px;
+  }
+
   @media (max-width: 1064px) {
-    padding: 0 34px;
+    padding: 0 42px;
   }
 
   @media (max-width: 880px) {
-    padding: 0 26px;
+    padding: 0 34px;
   }
 
   @media(max-width: 480px) {
     padding: 0 20px;
+  }
+
+  &_mobile_display {
+    @media(max-width: 655px) {
+      max-width: none;
+      padding: 0;
+      margin: 0;
+    }
   }
 }
 

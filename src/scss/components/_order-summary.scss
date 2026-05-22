@@ -1,0 +1,287 @@
+@use 'abstracts/variables' as variable;
+
+.order-summary {
+  width: 420px;
+  color: variable.$color-black;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 16px 1px rgba(0, 0, 0, 0.25);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 20px;
+    align-self: stretch;
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 19px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 16px;
+    }
+  }
+
+  &__total {
+    font-size: 26px;
+    font-weight: 700;
+
+    @media (max-width: 768px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 19px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 16px;
+    }
+  }
+
+  &__prices-info {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    color: variable.$color-gray-400;
+    align-self: stretch;
+
+    @media (max-width: 465px) {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+      margin: 0 0 10px;
+
+      @media (max-width: 768px) {
+        margin: 0 0 15px;
+      }
+
+      @media (max-width: 465px) {
+        margin: 0 0 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
+    }
+  }
+
+  &__delivery-info {
+    width: 100%;
+  }
+
+  &__delivery-label {
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 10px; 
+
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+  }
+
+  &__delivery-link {
+    text-decoration: none;
+    color: variable.$color-blue;
+  }
+
+  &__delivery-time {
+    color: variable.$color-gray-400;
+    margin: 0 0 5px;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+      margin: 0 0 10px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
+    }
+  }
+
+  &__delivery-geolocation {
+    color: variable.$color-gray-400;
+    margin: 0 0 20px;
+
+    @media (max-width: 768px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 465px) {
+      margin: 0 0 15px;
+      font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
+    }
+  }
+
+  &__delivery-date {
+    font-weight: 700;
+    margin: 0 0 20px;
+
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+    }
+
+    @media (max-width: 465px) {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__delivery-payment {
+    font-weight: 700;
+    margin: 0 0 30px;
+
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin: 0 0 40px;
+    }
+
+    @media (max-width: 465px) {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__submit {
+    display: block;
+    padding: 0;
+    width: 266px;
+    height: 51px;
+    margin: 0 0 20px;
+    border-radius: 10px;
+    background-color: variable.$color-blue;
+    color: variable.$color-main;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid variable.$color-blue;
+    transition: background-color .3s ease-in;
+
+    
+
+    &:hover {
+      background-color: variable.$color-blue-hover;
+    }
+
+    &:focus {
+      background-color: variable.$color-blue-focus;
+    }
+
+    &:active {
+      background-color: variable.$color-blue-hover;
+    }
+
+    &:disabled {
+      cursor: auto;
+      background-color: variable.$color-gray;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+      width: 100%;
+      height: 48px;
+      margin: 0 0 30px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 13px;
+    }
+
+    @media (max-width: 350px) {
+      border-radius: 6px;
+      height: 36px;
+      font-size: 12px;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__agreement-label {
+    align-self: stretch;
+    display: flex;
+
+    @media (max-width: 768px) {
+      align-items: center;
+    }
+  }
+
+  &__checkbox {
+    margin-top: 5px;
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    @media (max-width: 768px) {
+      margin: 0 15px 0 0;
+    }
+  }
+
+  &__agreement-link {
+    text-decoration: none;
+    color: variable.$color-gray-500;
+  }
+
+  &__agreement-text {
+    margin: 0;
+    width: 300px;
+    color: variable.$color-gray-400;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      font-size: 12px;
+    }
+
+    @media (max-width: 465px) {
+      font-size: 11px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 30px 0;
+    border-radius: 0;
+  }
+
+  @media (max-width: 350px) {
+    padding: 15px 0 20px;
+  }
+}

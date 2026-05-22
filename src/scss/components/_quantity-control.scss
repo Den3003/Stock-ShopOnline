@@ -1,0 +1,89 @@
+@use 'abstracts/variables' as variable;
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 105px;
+
+  &__btn {
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    color: variable.$color-black;
+    border: 1px solid variable.$color-gray;
+    border-radius: 100%;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+
+    &:disabled {
+      cursor: auto;
+      color: variable.$color-gray;
+
+      &:hover {
+        border-color: variable.$color-gray;
+        color: variable.$color-gray;
+      }
+    }
+
+    &:hover {
+      border-color: variable.$color-black;
+    }
+
+    &:focus {
+      border-color: variable.$color-blue;
+      color: variable.$color-blue;
+    }
+
+    &:active {
+      border-color: variable.$color-black;
+    }
+
+    
+
+    @media (max-width: 768px) {
+      width: 28px;
+      height: 28px;
+      font-size: 12px;
+    }
+  }
+
+  /* &__item-count {
+    border: none;
+    max-width: 13px;
+    max-height: 100%;
+    outline: none;
+    
+  }
+
+  &__item-count::-webkit-outer-spin-button,
+  &__item-count::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+  } */
+
+
+  &__value {
+    font-size: 22px;
+    line-height: 1.5;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 14px;
+    width: 87px;
+    justify-content: start;
+    gap: 0 10px;
+  }
+}

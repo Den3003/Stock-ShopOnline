@@ -1,0 +1,62 @@
+@use 'abstracts/variables' as variable;
+
+.category {
+  color: variable.$color-black;
+  padding: 30px 0 0;
+  margin: 0 0 100px;
+
+  &__title {
+    font-size: 50px;
+    line-height: 1.3;
+    margin: 0 0 50px;
+
+    @media (max-width: 1200px) {
+      font-size: 40px;
+      margin: 0 0 40px;
+    }
+
+    @media (max-width: 800px) {
+      font-size: 30px;
+      margin: 0 0 30px;
+    }
+
+    @media (max-width: 370px) {
+      font-size: 25px;
+    }
+
+    @media (max-width: 350px) {
+      font-size: 20px;
+      margin: 0 0 25px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 20px 0 0;
+    margin: 0 0 90px;
+  }
+
+  @media (max-width: 780px) {
+    padding: 20px 0 0;
+    margin: 0 0 57px;
+  }
+
+  @media (max-width: 350px) {
+    padding: 24px 0 0;
+    margin: 0 0 115px;
+  }
+
+  &__item {
+    position: relative;
+    border-radius: 14px;
+
+    @media (max-width: 800px) {
+      border-radius: 12px;
+    }
+  }
+}

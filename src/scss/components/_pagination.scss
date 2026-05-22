@@ -26,12 +26,6 @@
     }
   }
 
-  @media (max-width: 800px) {
-    gap: 0 18px;
-  }
-}
-
-.pagination-number {
   &__list {
     list-style: none;
     padding: 0;
@@ -45,6 +39,12 @@
     }
   }
 
+  @media (max-width: 800px) {
+    gap: 0 18px;
+  }
+}
+
+.pagination-number {
   &__item {
     position: relative;
     width: 36px;

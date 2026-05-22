@@ -1,0 +1,54 @@
+.footer-arrow-dropdown {
+
+  &__title {
+    @media (max-width: 420px) {
+      width: max-content;
+      position: relative;
+    }
+  }
+
+  &__button {
+    display: none;
+    background-color: transparent;
+    border: none;
+    font-size: 0;
+    line-height: 0;
+
+    &-arrow {
+      transition: transform 0.3s ease;
+    }
+
+    @media (max-width: 420px) {
+      display: inline-block;
+      vertical-align: middle;
+
+      &:after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+
+      }
+    }
+
+    &_active {
+
+      .footer-arrow-dropdown__button-arrow {
+        transform: rotate(180deg);
+      }
+    }
+
+  }
+
+  &__list {
+    @media (max-width: 420px) {
+      height: 0;
+      overflow: hidden;
+      transition: height .3s ease-in-out;
+      
+      &_active {
+        height: auto;
+      }
+    }
+  }
+}

@@ -1,3 +1,4 @@
+@use 'abstracts/mixins' as mix;
 @use 'abstracts/variables' as variable;
 
 .hero {
@@ -6,7 +7,35 @@
   &__background {
     position: relative;
     padding: 40px 112px;
-    background-image: variable.$gradient-bg-opacity, url("../images/hero/banner.jpg");
+
+    @include mix.bg-image-set("../images/hero/banner", variable.$gradient-bg-opacity);
+
+    /* 1. Самый глубокий фоллбэк — одно изображение */
+    // background-image: variable.$gradient-bg-opacity, url("../images/hero/banner.jpg");
+    
+    /* 2. Для Safari 6–16, iOS 8–16 */
+    /* background-image: variable.$gradient-bg-opacity,
+    -webkit-image-set(
+      url("../images/hero/banner.avif") 1x,
+      url("../images/hero/banner@2x.avif") 2x,
+      url("../images/hero/banner.webp") 1x,
+      url("../images/hero/banner@2x.webp") 2x,
+      url("../images/hero/banner.jpg") 1x,
+      url("../images/hero/banner@2x.jpg") 2x,
+    ); */
+
+    /* 3. Современный синтаксис с форматами */
+    /* background-image: variable.$gradient-bg-opacity,
+    image-set(
+      url("../images/hero/banner.avif") 1x type("image/avif"),
+      url("../images/hero/banner@2x.avif") 2x type("image/avif"),
+      url("../images/hero/banner.webp") 1x type("image/webp"),
+      url("../images/hero/banner@2x.webp") 2x type("image/webp"),
+      url("../images/hero/banner.jpg") 1x,
+      url("../images/hero/banner@2x.jpg") 2x,
+    ); */
+
+
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -25,13 +54,15 @@
     }
 
     @media (max-width: 860px) {
-      background-image: variable.$gradient-bg-opacity, url("../images/hero/banner860.jpg");
+      @include mix.bg-image-set("../images/hero/banner860", variable.$gradient-bg-opacity);
+      // background-image: variable.$gradient-bg-opacity, url("../images/hero/banner860.jpg");
       grid-template-rows: 73px 147px;
       padding: 30px 80px;
     }
 
     @media (max-width: 530px) {
-      background-image: variable.$gradient-bg-opacity, url("../images/hero/banner530.jpg");
+      @include mix.bg-image-set("../images/hero/banner530", variable.$gradient-bg-opacity);
+      // background-image: variable.$gradient-bg-opacity, url("../images/hero/banner530.jpg");
       border-radius: 8px;
       grid-template-rows: 49px 231px;
       padding: 30px 29px;

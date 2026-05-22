@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="fonts/Lato-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/Lato-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles/index.min.css">
+    <script type="module" src="script/index.js"></script>  
+    <title>Корзина - ShopOnline</title>
+  </head>
+  <body>
+
+    <!-- ==================== HEADER ==================== -->
+    <header class="header">
+      <div class="container">
+        <div class="header__grid">
+          <img class="header__logo" src="images/sprite.svg#logo" alt="Логотип c  Shop Online" width="187" height="43">
+          <button class="header__button js-header-button" type="button" aria-haspopup="menu" aria-label="Открыть меню">
+            <span class="lines js-lines">
+              <span class="lines__item lines__item_position_top"></span>
+              <span class="lines__item lines__item_position_middle"></span>
+              <span class="lines__item lines__item_position_bottom"></span>
+            </span>
+            Меню
+          </button>
+
+          <form class="search-box header__search-box" name="searchForm" action="#" method="GET" role="search">
+            <label class="visually-hidden" for="site-search">Поиск по товарам</label>
+            <input minlength="2" class="search-box__input" type="search" name="search" id="site-search" aria-label="Поиск по сайту" placeholder="Я ищу..." enterkeytype="search" autocomplete="off" required>
+            <button class="search-box__button" type="submit" aria-label="Начать поиск">
+              <svg class="search-box__icon" width="27" height="27" viewBox="0 0 27 27" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19.25 17H18.065L17.645 16.595C19.115 14.885 20 12.665 20 10.25C20 4.865 15.635 0.5 10.25 0.5C4.865 0.5 0.5 4.865 0.5 10.25C0.5 15.635 4.865 20 10.25 20C12.665 20 14.885 19.115 16.595 17.645L17 18.065V19.25L24.5 26.735L26.735 24.5L19.25 17ZM10.25 17C6.515 17 3.5 13.985 3.5 10.25C3.5 6.515 6.515 3.5 10.25 3.5C13.985 3.5 17 6.515 17 10.25C17 13.985 13.985 17 10.25 17Z"/>
+              </svg>
+            </button>
+
+            <div class="search-box__suggestions-wrapper" hidden>
+              <ul class="search-box__suggestions-list">
+                <!-- <li class="search-box__suggestions-item">Страсбургский носок</li> -->
+              </ul>
+            </div>
+          </form>
+
+          <ul class="user-settings header__user-settings">
+            <li class="user-settings__item">
+              <a class="user-settings__link" aria-label="Вход в личный кабинет" href="#">
+                <svg class="user-settings__profile" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <use href="images/sprite.svg#profile"></use>
+                </svg>
+                <span class="user-settings__name">Профиль</span>
+              </a>
+            </li>
+            <li class="user-settings__item profile-basket">
+              <a class="user-settings__link" aria-label="Переход на страницу корзина с товарами" href="basket.html">
+                <svg class="user-settings__profile-basket" width="31" height="30" viewBox="0 0 31 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <use href="images/sprite.svg#basket"></use>
+                </svg>
+                <span class="user-settings__name">Корзина</span>
+              </a>
+              <span class="profile-basket__counter">0</span>
+            </li>
+            <li class="user-settings__item">
+              <a class="user-settings__link" aria-label="Переход в избранное" href="#">
+                <svg class="user-settings__favorite" width="30" height="29" viewBox="0 0 30 29" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <use href="images/sprite.svg#heart"></use>
+                </svg>
+                <span class="user-settings__name">Избранное</span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+          
+        <nav class="navigation js-navigation" aria-label="Основная навигация">
+          <div class="container">
+            <div class="navigation-grid header-arrow-dropdown">
+              <div class="navigation__catalog catalog header-arrow-dropdown__wrapper-list">
+                <p class="navigation__title header-arrow-dropdown__title">Каталог
+                  <button class="header-arrow-dropdown__button" aria-expanded="false" type="button">
+                    <svg class="header-arrow-dropdown__button-arrow" aria-hidden="true" width="15" height="6" viewBox="0 0 15 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 6L0.138784 0H14.8612L7.5 6Z" fill="black" />
+                    </svg>
+                  </button>
+                </p>
+                <ul class="navigation__list catalog__list header-arrow-dropdown__list js-header-catalog"> 
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Смартфоны</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Ноутбуки</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Ювелирные изделия</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Одежда</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Бытовая техника</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Бытовая химия</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Книги и журналы</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Домашний текстиль</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Электроника</a> -->
+                  <!-- </li> -->
+                  <!-- <li class="navigation__item"> -->
+                    <!-- <a class="navigation__link" href="#">Косметика</a> -->
+                  <!-- </li> -->
+                </ul>
+              </div>
+              <div class="navigation__buyers buyers header-arrow-dropdown__wrapper-list">
+                <p class="navigation__title header-arrow-dropdown__title">Покупателям
+                  <button class="buyers__button-arrow header-arrow-dropdown__button" aria-expanded="false" type="button">
+                    <svg  class="header-arrow-dropdown__button-arrow" aria-hidden="true" width="15" height="6" viewBox="0 0 15 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.5 6L0.138784 0H14.8612L7.5 6Z" fill="black" />
+                    </svg>
+                  </button>
+                </p>
+                <ul class="navigation__list buyers__list header-arrow-dropdown__list">
+                  <li class="navigation__item">
+                    <a class="navigation__link" href="#">Оплата заказа</a>
+                  </li>
+                  <li class="navigation__item">
+                    <a class="navigation__link" href="#">Условия доставки</a>
+                  </li>
+                  <li class="navigation__item">
+                    <a class="navigation__link" href="#">Условия возврата заказа</a>
+                  </li>
+                  <li class="navigation__item">
+                    <a class="navigation__link" href="blog.html">Блог</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="navigation__contacts navigation-contacts">
+                <p class="navigation__title">Связаться с нами</p>
+                <a class="navigation__link" href="#footer">Контакты</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ==================== BREADCRUMB ==================== -->
+    <nav class="breadcrumb" aria-label="Хлебные крошки">
+      <div class="container">
+        <ul class="breadcrumb__list">
+          <li class="breadcrumb__item">
+            <a class="breadcrumb__link" href="index.html">Главная</a>
+          </li>
+          <li class="breadcrumb__item">Корзина</li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ==================== MAIN ==================== -->
+    <main class="page-basket">
+
+      <div class="container page-basket__container">
+
+        <!-- ЭЛЕМЕНТ: двух колоночный layout (левая часть + правая панель итогов) -->
+        <div class="page-basket__layout">
+
+          <!-- ===== LEFT COLUMN ===== -->
+          <div class="page-basket__content">
+            
+            <!-- BASKET BLOCK -->
+            <section class="basket">
+              <div class="page-basket__mobile-wrapper">
+
+                <h1 class="basket__title">Корзина<span class="basket__title-counter">0</span></h1>
+                
+                <!-- БЛОК checkbox +  svg корзины -->
+                <div class="basket__select-all">
+                  <label class="basket__checkbox-label">
+                    <input class="basket__checkbox-input basket__checkbox-select-all" type="checkbox">
+                    Выбрать все
+                  </label>
+                  <button class="basket__products-delete" type="button" aria-label="Удалить выделенный товар" disabled>
+                    <svg width="18" height="23" viewBox="0 0 18 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15.75 5.5V20C15.75 21.0989 14.8489 22 13.75 22H3.75C2.65114 22 1.75 21.0989 1.75 20V5.5H15.75ZM11.668 0.5L12.918 1.75H17V3.25H0.5V1.75H4.58203L5.83203 0.5H11.668Z" fill="currentColor" stroke="#C9C9C9"/>
+                    </svg>
+                  </button>
+                </div>
+                
+                <!-- Линия -->
+                <hr class="basket__line">
+                
+                <!-- ЭЛЕМЕНТ: список товаров в корзине -->
+                <ul class="basket__list">
+                  
+                  <!-- ЭЛЕМЕНТ корзины + самостоятельный БЛОК basket-item (карточка товара в корзине) -->
+                  <!-- <li class="basket__item basket-item"> -->
+                    <!-- <div class="basket-item__checkbox-image-wrapper"> -->
+                      <!-- <input class="basket__checkbox-input basket-item__checkbox" type="checkbox" name="basketProduct"> -->
+                      <!--  -->
+                      <!-- ЭЛЕМЕНТ: обёртка изображения для управления размером/обрезкой -->
+                      <!-- <div class="basket-item__image-wrapper"> -->
+                        <!-- <img class="basket-item__image" src="images/basket/notebook.jpg" alt="15.6 Игровой ноутбук ASUS G513IE-HN004T"> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+<!--  -->
+                    <!-- ЭЛЕМЕНТ: информационный блок товара -->
+                    <!-- <div class="basket-item__info"> -->
+                      <!-- <p class="basket-item__name">15.6" Игровой ноутбук ASUS G513IE-HN004T</p> -->
+                      <!--  -->
+                      <!-- ЭЛЕМЕНТ: список атрибутов товара (цвет, память и т.д.) -->
+                      <!-- <ul class="basket-item__attrs"> -->
+                        <!-- <li class="basket-item__attr"> -->
+                          <!-- <span class="basket-item__attr-label">Цвет:</span> -->
+                          <!-- <span class="basket-item__attr-value">чёрный</span> -->
+                        <!-- </li> -->
+                        <!-- <li class="basket-item__attr"> -->
+                          <!-- <span class="basket-item__attr-label">Оперативная память:</span> -->
+                          <!-- <span class="basket-item__attr-value">16 ГБ</span> -->
+                        <!-- </li> -->
+                      <!-- </ul> -->
+                    <!-- </div> -->
+<!--  -->
+                    <!-- ЭЛЕМЕНТ + БЛОК quantity-control (пере используемый счётчик количества) -->
+                    <!-- <div class="basket-item__quantity quantity-control"> -->
+                      <!-- <button class="quantity-control__btn quantity-control__btn_minus">-</button> -->
+                      <!-- <span class="quantity-control__value">1</span> -->
+                      <!-- <button class="quantity-control__btn quantity-control__btn_plus">+</button> -->
+                    <!-- </div> -->
+                    <!--  -->
+                    <!-- ЭЛЕМЕНТ: ценовая группа товара -->
+                    <!-- <div class="basket-item__pricing"> -->
+                      <!-- <span class="basket-item__price">109 090 ₽</span> -->
+                      <!-- <span class="basket-item__price-old">140 590 ₽</span> -->
+                      <!-- ЭЛЕМЕНТ: старая (зачёркнутая) цена -->
+                      <!-- <a class="basket-item__credit" href="#">В кредит от 5600 ₽</a> -->
+                    <!-- </div> -->
+                    <!-- <button class="basket-item__remove" type="button" aria-label="Удалить товар"> -->
+                      <!-- <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+                        <!-- <path d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM14 1H10.5L9.5 0H4.5L3.5 1H0V3H14V1Z" fill="#C9C9C9" /> -->
+                      <!-- </svg> -->
+                    <!-- </button> -->
+                  <!-- </li> -->
+
+                  <!-- <li class="basket__item basket-item"> -->
+                    <!-- <div class="basket-item__checkbox-image-wrapper"> -->
+                      <!-- <input class="basket__checkbox-input basket-item__checkbox" type="checkbox" name="basketProduct"> -->
+                      <!--  -->
+                      <!-- ЭЛЕМЕНТ: обёртка изображения для управления размером/обрезкой -->
+                      <!-- <div class="basket-item__image-wrapper"> -->
+                        <!-- <img class="basket-item__image" src="images/basket/bed.jpg" alt="Постельное белье"> -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                    <!--  -->
+                    <!-- ЭЛЕМЕНТ: информационный блок товара -->
+                    <!-- <div class="basket-item__info"> -->
+                      <!-- <p class="basket-item__name">Постельное белье</p> -->
+                      <!--  -->
+                      <!-- ЭЛЕМЕНТ: список атрибутов товара (цвет, память и т.д.) -->
+                      <!-- <ul class="basket-item__attrs"> -->
+                        <!-- <li class="basket-item__attr"> -->
+                          <!-- <span class="basket-item__attr-label">Цвет:</span> -->
+                          <!-- <span class="basket-item__attr-value">белый</span> -->
+                        <!-- </li> -->
+                        <!-- <li class="basket-item__attr"> -->
+                          <!-- <span class="basket-item__attr-label">Размер:</span> -->
+                          <!-- <span class="basket-item__attr-value">Евро, двуспальное</span> -->
+                        <!-- </li> -->
+                      <!-- </ul> -->
+                    <!-- </div> -->
+<!--  -->
+                    <!-- ЭЛЕМЕНТ + БЛОК quantity-control (пере используемый счётчик количества) -->
+                    <!-- <div class="basket-item__quantity quantity-control"> -->
+                      <!-- <button class="quantity-control__btn quantity-control__btn_minus">-</button> -->
+                      <!-- <span class="quantity-control__value">1</span> -->
+                      <!-- <button class="quantity-control__btn quantity-control__btn_plus">+</button> -->
+                    <!-- </div> -->
+<!--  -->
+                    <!-- ЭЛЕМЕНТ: ценовая группа товара -->
+                    <!-- <div class="basket-item__pricing"> -->
+                      <!-- <span class="basket-item__price">3902 ₽</span> -->
+                      <!-- <span class="basket-item__price-old">4490 ₽</span> -->
+                      <!-- ЭЛЕМЕНТ: старая (зачёркнутая) цена -->
+                      <!-- <a class="basket-item__credit" href="#">В кредит от 560 ₽</a> -->
+                    <!-- </div> -->
+<!--  -->
+                    <!-- <button class="basket-item__remove" type="button" aria-label="Удалить товар"> -->
+                      <!-- <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg"> -->
+                        <!-- <path d="M1 16C1 17.1 1.9 18 3 18H11C12.1 18 13 17.1 13 16V4H1V16ZM14 1H10.5L9.5 0H4.5L3.5 1H0V3H14V1Z" fill="#C9C9C9" /> -->
+                      <!-- </svg> -->
+                    <!-- </button> -->
+                  <!-- </li> -->
+                  
+                </ul>
+              </div>
+            </section>
+
+            <!-- DELIVERY BLOCK -->
+            <!-- БЛОК: способ доставки. Отдельный независимый блок -->
+            <section class="delivery">
+              <div class="page-basket__mobile-wrapper">
+
+                <div class="delivery__header">
+                  <h2 class="delivery__title">Способ доставки</h2>
+                  <a class="delivery__change-link" href="#">Изменить</a>
+                </div>
+
+              <!-- ЭЛЕМЕНТ: список деталей доставки (dl для семантики label-value) -->
+              <dl class="delivery__details">
+                  <dt class="delivery__location-label">Пункт выдачи</dt>
+                  <dd class="delivery__location-value">г. Москва (Московская область), улица Павлика Морозова, д. 48, (Пункт выдачи), Ежедневно 10:00-21:00</dd>
+                  <dt class="delivery__price-label">Стоимость доставки</dt>
+                  <dd class="delivery__price-value price-value price-value_after">Бесплатно</dd>
+                  <dt class="delivery__date">10-13 февраля</dt>
+                  
+                  <!-- ЭЛЕМЕНТ: превью изображений товаров для доставки -->
+                  <dd class="delivery__images-wrapper">
+                    <!-- <div class="delivery__image-wrapper"> -->
+                      <!-- <img class="delivery__preview-img" src="images/card/main-notebook.png" alt="bedroom"> -->
+                    <!-- </div> -->
+                    <!-- <div class="delivery__image-wrapper"> -->
+                      <!-- <img class="delivery__preview-img" src="images/delivery/notebook.jpg" alt="notebook"> -->
+                    <!-- </div> -->
+                  </dd>
+                </dl>
+              </div>
+            </section>
+          </div>
+
+          <!-- ===== RIGHT COLUMN — ORDER SUMMARY ===== -->
+          <!-- БЛОК: панель итогов заказа. aside — семантически правильно,
+            это дополнительная информация к основному контенту -->
+          <aside class="order-summary">
+            <div class="page-basket__mobile-wrapper page-basket__mobile-wrapper_order-summary">
+
+              <div class="order-summary__header">
+                <h2 class="order-summary__title">Итого:</h2>
+                <span class="order-summary__total">
+                  <span class="order-summary__total-span">0</span> ₽
+                </span>
+              </div>
+              
+              <!-- ЭЛЕМЕНТ: детализация суммы -->
+              <ul class="order-summary__prices-info">
+                <li class="order-summary__text">
+                  <span>Товары,
+                    <span class="order-summary__product-counter">0</span>
+                    шт.
+                  </span>
+                  <span class="order-summary__product-summary">
+                    <span class="order-summary__product-summary-span">0</span> ₽
+                  </span>
+                </li>
+                <li class="order-summary__text">
+                  <span>Скидка</span>
+                  <span class="order-summary__discount">
+                    <span class="order-summary__discount-span">0</span> ₽
+                  </span>
+                </li>
+                <li class="order-summary__text">
+                  <span>Доставка</span>
+                  <span class="order-summary__delivery-condition">Бесплатно</span>
+                </li>
+              </ul>
+              
+              <!-- ЭЛЕМЕНТ: информация о пункте выдачи и дате -->
+              <div class="order-summary__delivery-info">
+                <p class="order-summary__delivery-label">Доставка: <a class="order-summary__delivery-link" href="#">Пункт выдачи</a></p>
+                <p class="order-summary__delivery-time">Ежедневно 10:00 - 21:00</p>
+                <p class="order-summary__delivery-geolocation">г. Москва (Московская область), улица Павлика Морозова, д. 48</p>
+                <p class="order-summary__delivery-date">Дата: <a class="order-summary__delivery-link" href="#">10-13 февраля</a></p>
+                <p class="order-summary__delivery-payment">Оплата: <a class="order-summary__delivery-link" href="#">Картой</a></p>
+              </div>
+              
+              <button class="order-summary__submit" type="button">Заказать</button>
+              
+              <label class="order-summary__agreement-label">
+                <input class="order-summary__checkbox" type="checkbox" id="checkbox-agreement" checked>
+                <span class="order-summary__agreement-text"><a class="order-summary__agreement-link" href="#">Согласен с условиями</a>
+                  правил пользования торговой площадкой и правилами возврата
+                </span>
+              </label>
+              
+            </div>
+          </aside>
+        </div>
+
+      
+      </div>
+
+      <section class="profitable">
+        <div class="container">
+          <h2 class="profitable__title">Это выгодно!</h2>
+          <ul class="profitable__list product-grid">
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Пара футболок</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/futbolka-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/futbolka-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/futbolka.jpg" alt="Футболка" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-50%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 1299 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 1599 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Пара футболок -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Постельное бельё</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/bed-sheets-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/bed-sheets-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/bed-sheets.jpg" alt="Постельное бельё" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-10%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 2099 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 5938 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Постельное бельё -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Фен</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/hair-dryer-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/hair-dryer-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/hair-dryer.jpg" alt="Фен" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-30%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 2999 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 6030 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Фен -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Кроссовки</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/kros-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/kros-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/kros.jpg" alt="Кроссовки" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-40%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 2099 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 5938 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Кроссовки -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Пара футболок</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/futbolka-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/futbolka-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/futbolka.jpg" alt="Футболка" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-50%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 1299 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 1599 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Пара футболок -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Постельное бельё</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/bed-sheets-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/bed-sheets-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/bed-sheets.jpg" alt="Постельное бельё" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-10%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 2099 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 5938 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Постельное бельё -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Фен</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/hair-dryer-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/hair-dryer-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/hair-dryer.jpg" alt="Фен" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-30%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 2999 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 6030 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Фен -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+            <!-- <li class="profitable__item product-grid__item" tabindex="0"> -->
+              <!--  -->
+              <!-- <article class="product-card"> -->
+                <!-- <h3 class="visually-hidden product-card__title-hidden">Кроссовки</h3> -->
+                <!-- <div class="product-card__image-wrapper"> -->
+                  <!-- <picture> -->
+                    <!-- <source media="(max-width: 992px)" srcset="images/profitable/kros-768.jpg"> -->
+                    <!-- <source media="(max-width: 1200px)" srcset="images/profitable/kros-1024.jpg"> -->
+                    <!-- <img class="product-card__image" src="images/profitable/kros.jpg" alt="Кроссовки" width="420" height="295"> -->
+                  <!-- </picture> -->
+                  <!-- <span class="product-card__discount">-40%</span> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <div class="product-card__price-group"> -->
+                  <!-- <span class="product-card__price"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Новая цена: -->
+                    <!-- </span> -->
+                    <!-- 2099 ₽ -->
+                  <!-- </span> -->
+<!--  -->
+                  <!-- <del class="product-card__price-old"> -->
+                    <!-- <span class="visually-hidden"> -->
+                      <!-- Старая цена: -->
+                    <!-- </span> -->
+                    <!-- 5938 ₽ -->
+                  <!-- </del> -->
+                <!-- </div> -->
+<!--  -->
+                <!-- <a class="product-card__title" href="#" tabindex="-1"> -->
+                  <!-- Кроссовки -->
+                <!-- </a> -->
+              <!-- </article> -->
+<!--  -->
+            <!-- </li> -->
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer id="footer" class="footer">
+      <div class="container footer-container footer-arrow-dropdown">
+        <div class="footer-logo-block">
+          <img class="footer__logo" src="images/sprite.svg#logoFooter" alt="Логотип" width="190" height="30">
+        </div>
+        <div class="footer-catalog footer-arrow-dropdown__wrapper-list">
+          <h3 class="footer__title footer-arrow-dropdown__title">
+            Каталог
+            <button class="footer-catalog__button footer__button footer-arrow-dropdown__button" aria-expanded="false" type="button">
+              <svg class="footer-arrow-dropdown__button-arrow" aria-hidden="true" width="15" height="6" viewBox="0 0 15 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 6L0.138784 0H14.8612L7.5 6Z" fill="white" />
+              </svg>
+            </button>
+          </h3>
+          <ul class="footer-catalog__list footer__list footer-arrow-dropdown__list js-footer-catalog">
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Смартфоны</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Ноутбуки</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Ювелирные изделия</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Одежда</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Бытовая техника</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Бытовая химия</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Книги и журналы</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Домашний текстиль</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Электроника</a></li> -->
+            <!-- <li class="footer__item"><a class="footer__link" href="#">Косметика</a></li> -->
+          </ul>
+        </div>
+        <div class="footer-buyers footer-arrow-dropdown__wrapper-list">
+          <h3 class="footer__title footer-arrow-dropdown__title">
+            Покупателям
+            <button class="footer-buyers__button footer__button footer-arrow-dropdown__button" aria-expanded="false" type="button">
+              <svg class="footer-arrow-dropdown__button-arrow" aria-hidden="true" width="15" height="6" viewBox="0 0 15 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7.5 6L0.138784 0H14.8612L7.5 6Z" fill="white" />
+              </svg>
+            </button>
+          </h3>
+          <ul class="footer-buyers__list footer__list footer-arrow-dropdown__list">
+            <li class="footer__item"><a class="footer__link" href="#">Оплата заказа</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">Условия доставки</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">Условия возврата заказа</a></li>
+            <li class="footer__item"><a class="footer__link" href="blog.html">Блог</a></li>
+          </ul>
+        </div>
+        <div class="footer-contacts">
+          <h3 class="footer__title">Контакты</h3>
+          <address class="footer-contacts__address">
+            <p class="footer-contacts__text text-tel">Тел: <a class="footer__link footer-contacts__link"
+                href="tel:79378392361">+7 937 839 23-61</a></p>
+            <p class="footer-contacts__text">Email: <a class="footer__link footer-contacts__link"
+                href="mailto:OnlineShop@gmail.com">OnlineShop@gmail.com</a></p>
+          </address>
+
+          <div class="footer-contacts__socials socials">
+            <a class="socials__link" target="_blank" aria-label="в whatsapp" href="https://whatsapp.com/">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite.svg#whatsApp"></use>
+              </svg>
+            </a>
+
+            <a class="socials__link" target="_blank" aria-label="в instagram" href="https://instagram.com/">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite.svg#instagram"></use>
+              </svg>
+            </a>
+
+            <a class="socials__link" target="_blank" aria-label="в youtube" href="https://youtube.com/">
+              <svg width="24" height="18" viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite.svg#youtube"></use>
+              </svg>
+            </a>
+
+            <a class="socials__link" target="_blank" aria-label="в facebook" href="https://facebook.com/">
+              <svg width="15" height="24" viewBox="0 0 15 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite.svg#facebook"></use>
+              </svg>
+            </a>
+            
+            <a class="socials__link" target="_blank" aria-label="в telegram" href="https://web.telegram.org/">
+              <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <use href="images/sprite.svg#telegram"></use>
+              </svg>
+            </a>
+          </div>
+        </div>
+        <p class="footer__copyright">© OnlineShop, 2021-<span class="footer__copyright-year"></span></p>
+            
+        <div class="footer__design-block footer-design">
+          <p class="footer-design__text text-design">Design by <a class="footer__link footer-design__link"
+            href="#">Anastasia Ilina</a></p>
+          <p class="footer-design__text">Tg: <a class="footer__link footer-design__link" target="_blank"
+            aria-label="в telegram @Mrshmallowww" href="https://web.telegram.org/">@Mrshmallowww</a></p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

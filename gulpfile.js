@@ -1,6 +1,6 @@
 import gulp from 'gulp';
 import browserSync from 'browser-sync'; // Для обновления
-import sassPkg from 'sass'; // Нужен для того чтобы работал наш gulp-sass, они взаимосвязанны 
+import * as sassPkg from 'sass'; // Нужен для того чтобы работал наш gulp-sass, они взаимосвязанны 
 import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 const sass = gulpSass(sassPkg);
@@ -20,6 +20,7 @@ import imageminSvgo from 'imagemin-svgo';
 //Пакеты для конвертирования изображений в .webp и .avif
 import gulpWebp from 'gulp-webp';
 import gulpAvif from 'gulp-avif';
+import svgSprite from 'gulp-svg-sprite';
 
 import tap from 'gulp-tap'; // Пакет для лога что происходит в тасках 
 import { stream as critical } from 'critical'; // Критические стили выделяем
@@ -159,9 +160,10 @@ export const img = () => gulp
   .pipe(browserSync.stream());
 
 export const webp = () => gulp
-  .src(path.src.imagesF)
+  .src(path.src.imagesF, { encoding: false })
   .pipe(gulpWebp({
-    quality: dev ? 100 : 60
+    quality: dev ? 100 : 70,
+    method: 6,
   }))
   .pipe(gulp.dest(path.dist.images))
   .pipe(browserSync.stream({
@@ -171,8 +173,22 @@ export const webp = () => gulp
 export const avif = () => gulp
   .src(path.src.imagesF, { encoding: false })
   .pipe(gulpAvif({
-    quality: dev ? 100 : 50,
+    quality: dev ? 100 : 70,
     verbose: true
+  }))
+  .pipe(gulp.dest(path.dist.images))
+  .pipe(browserSync.stream({
+    once: true
+  }));
+
+export const svg = () => gulp
+  .src(path.src.svgSprite)
+  .pipe(svgSprite({
+    mode: {
+      stack: {
+        sprite: "../sprite.svg"
+      }
+    },
   }))
   .pipe(gulp.dest(path.dist.images))
   .pipe(browserSync.stream({
@@ -212,6 +228,7 @@ export const server = async (done) => {
 
   gulp.watch(path.watch.html, html);
   gulp.watch(prepros ? path.watch.scss : path.watch.css, style);
+  gulp.watch(path.watch.svg, svg);
   gulp.watch(path.watch.images, img);
   gulp.watch(path.watch.js, js);
   gulp.watch('./src/fonts/**/*', copy);
@@ -239,7 +256,7 @@ export const develop = async() => {
   dev = true;
 }
 
-export const base = gulp.parallel(html, style, js, img, webp, avif, copy);
+export const base = gulp.parallel(html, style, js, img, webp, avif, svg, copy);
 
 export const build = gulp.series(clear, base, critCSS);
 

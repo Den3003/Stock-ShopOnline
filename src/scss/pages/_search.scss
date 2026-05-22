@@ -1,0 +1,41 @@
+@use 'abstracts/variables' as variable;
+
+.search {
+  padding: 0 0 100px;
+  color: variable.$color-black;
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+
+    position: relative;
+    border-radius: 14px;
+
+    &_not-item {
+      font-size: 22px;
+      line-height: 1.5;
+      padding: 20px 0 0;
+    
+      @media (max-width: 768px) {
+        font-size: 18px;
+      }
+
+      @media (max-width: 465px) {
+        font-size: 15px;
+      }
+
+      @media (max-width: 350px) {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      border-radius: 12px;
+    }
+
+  }
+}

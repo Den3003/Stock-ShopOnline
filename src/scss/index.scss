@@ -1,39 +1,72 @@
-// папка abstracts
 
-@use 'abstracts/mixins';
-@use 'abstracts/variables';
-@use 'abstracts/fonts';
+// ── 1. Абстракции (без вывода CSS) ────────────── 
+// Папка abstracts ← не генерирует CSS
+// 
 
-// папка vendors
+@use 'abstracts/mixins';    // ← многоразовые блоки кода
+@use 'abstracts/variables'; // ← цвета, размеры, типографика
+@use 'abstracts/fonts';     // ← шрифты
+
+
+// ── 2. Сторонние библиотеки ──────────────────────
+// Папка vendors ← сторонние библиотеки
 
 @use 'vendors/variables-normalize';
 @use 'vendors/vertical-rhythm';
 @use 'vendors/normalize';
 
-// папка base
 
-@use 'base/default';
+// ── 3. Базовые стили ────────────────────────────
+// Папка base ← сброс и глобальные стили
 
-// папка components
+@use 'base/default';                     //  Глобальные стили
 
-@use 'components/search-box.scss';
-@use 'components/lines';
-@use 'components/timer';
-@use 'components/user-settings';
-@use 'components/breadcrumb';
-@use 'components/pagination';
-@use 'components/loader';
 
-// папка layout
+// ── 4. Компоновка ───────────────────────────────
+// Папка layout ← каркас страницы
 
-@use 'layout/header';
-@use 'layout/navigation';
-@use 'layout/hero';
-@use 'layout/discounts';
-@use 'layout/profitable';
-@use 'layout/blog';
-@use 'layout/card';
-@use 'layout/recommendations';
-@use 'layout/content';
-@use 'layout/footer';
+@use 'layout/header';                     //  шапка сайта
+@use 'layout/hero';                       //  Блок hero на главной странице в самом верху
+@use 'layout/discounts';                  //  Блок на главной странице с картинками скидок
+@use 'layout/profitable';                 //  Блок "Это выгодно!"
+@use 'layout/product-grid';               //  grid сетка карточек товаров
+@use 'layout/recommendations';            //  Блок "Рекомендуем также" который находится на странице информации о товаре 
+@use 'layout/footer';                     //  подвал сайта
+@use 'layout/page-basket';                //  grid сетка страницы корзины
 
+
+// ── 5. Компоненты ───────────────────────────────
+// Папка components ← независимые блоки
+
+@use 'components/navigation';             //  Лист-меню в шапке 
+@use 'components/search-box.scss';        //  Поиск
+@use 'components/header-arrow-dropdown';  //  Стрелка рядом с названием секции в лист-меню шапки
+@use 'components/footer-arrow-dropdown';  //  Стрелка рядом с названием секции в лист-меню подвала
+@use 'components/product-card';           //  Карточка товара
+@use 'components/lines';                  //  Линия
+@use 'components/timer';                  //  Таймер который отображается в секции hero на главной странице
+@use 'components/user-settings';          //  Иконки в шапке сайта
+@use 'components/breadcrumb';             //  Хлебные крошки
+@use 'components/pagination';             //  Пагинация на странице Блога
+@use 'components/loader';                 //  Лоудер на странице Блога и информации о статье
+@use 'components/basket';                 //  Раздел "Корзина" на странице корзины
+@use 'components/basket-item';            //  Элемент(товар) в разделе "Корзина" на странице корзины
+@use 'components/quantity-control';       //  Кнопки "+" и "-" на элементе(товаре) в разделе "Корзина" на странице корзины
+@use 'components/delivery';               //  Раздел "Способ доставки" на странице корзины
+@use 'components/skeleton';               //  Скелетон для карточек товаров
+@use 'components/order-summary';          //  Раздел "Итого" на странице корзины
+
+
+
+// ── 6. Страницы ─────────────────────────────────
+// Папка pages ← стили конкретных страниц
+
+@use 'pages/blog';                        //  Страница блога
+@use 'pages/content';                     //  Страница информации о статье
+@use 'pages/card';                        //  Страница информации о товаре
+@use 'pages/search';                      //  Страница результатов поиска
+@use 'pages/category';                    //  Страница категории товаров
+
+
+// ── 7. Темы ─────────────────────────────────
+// Папка themes ← тёмная тема, брендинг
