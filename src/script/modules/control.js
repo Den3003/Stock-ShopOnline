@@ -141,8 +141,10 @@ export const navMenu = () => {
       domElements.navigation.classList.toggle('navigation_active');
       
       if(domElements.navigation.classList.contains('navigation_active')) {
+        domElements.headerMenu.setAttribute('aria-expanded', 'true');
         domElements.menuLines.classList.add('lines_active');
       } else {
+        domElements.headerMenu.setAttribute('aria-expanded', 'false');
         domElements.menuLines.classList.remove('lines_active');
       }
     } else if(!target.closest('.navigation') && domElements.navigation.classList.contains('navigation_active') || target.classList.contains('navigation__link')) {
